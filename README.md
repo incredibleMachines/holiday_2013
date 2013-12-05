@@ -1,4 +1,4 @@
-INCREDIBLE MACHINES HOLIDAY 2013 CARD/SERVER
+INCREDIBLE MACHINES HOLIDAY 2013 CARD
 --------------------------------------------
 
 Brought to you by us.
