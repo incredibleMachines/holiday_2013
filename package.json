@@ -1,7 +1,7 @@
 {
   "engines": {
     "npm": "1.1.65",
-    "node": "0.8.x"
+    "node": "0.10.x"
   },
   "repository": {
     "url": "git://github.com/lpercifield/node-login.git",
