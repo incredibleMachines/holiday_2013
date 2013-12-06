@@ -6,7 +6,36 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		link(rel='stylesheet', href='/vendor/bootstrap-responsive.css')
 		link(rel='stylesheet', href='/vendor/bootstrap-modal.css')
-		link(rel='stylesheet', href='/css/style.css')
+		- if(typeof(holiday)!=='undefined')
+				link(rel='stylesheet', href='/css/holiday.css')
+				//link(rel='stylesheet', href='/css/history.css')
+				script(type='text/javascript', src='/vendor/swfobject.js')
+				script(type='text/javascript')
+					// For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+					var swfVersionStr = "11.1.0";
+					// To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+					var xiSwfUrlStr = "/swf/playerProductInstall.swf";
+					var flashvars = {};
+					var params = {};
+					params.quality = "high";
+					params.bgcolor = "#ffffff";
+					params.allowscriptaccess = "sameDomain";
+					params.allowfullscreen = "true";
+					var attributes = {};
+					attributes.id = "holiday_tree";
+					attributes.name = "holiday_tree";
+					attributes.align = "middle";
+					swfobject.embedSWF(
+					"/swf/holiday_tree.swf", "flashContent", 
+					"100%", "100%", 
+					swfVersionStr, xiSwfUrlStr, 
+					flashvars, params, attributes);
+					// JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+					swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+					console.log('yea dog')
+		- else
+				link(rel='stylesheet',href='/css/style.css')
+		
 		link(rel='stylesheet', href='/vendor/farbtastic.css')
 		link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css")
 		script(type='text/javascript')
@@ -14,8 +43,8 @@ html
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-46207594-1', 'visualight.org');
+			
+			ga('create', 'UA-45421450-2', 'treeeee.com');
 			ga('send', 'pageview');
 	body!= body
-		//a(href="http://github.com/braitsch/node-login")
-		//	img#github-banner(style="position:absolute;top:0px;right:0;border:0;", src="https://a248.e.akamai.net/camo.github.com/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67", alt="Fork me on GitHub")
+		

@@ -27,9 +27,6 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 		}
 	});
 	
-	app.get('/test',AUTH.sessionCheck,function(req,res){
-		res.send('you\'ve made it');
-	})
 	
 /**
 * main login page 
@@ -39,16 +36,27 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 * @param {String} req.cookies.user from the cookie get the user
 * @param {String} req.cookies.pass from the cookie get the pass
 */
+/*
 	app.get('/',AUTH.sessionCheck, function(req, res){
 
 		res.redirect('/myvisualight'); // this is where the auth'd user is redirected
 		
 	});
+*/
+
+	app.get('/',function(req,res){
+		
+		res.render('holiday', { locals: { title: 'Hijack Our Tree!', holiday: true }});
+	})
 	
 	app.get('/login',function(req,res){
 		res.render('login', { locals: { title: 'Visualight - Please Login To Your Account' }}); // this renders the login view
 
 	})
+	
+
+	
+	
 	
 /**
  * post login route 
