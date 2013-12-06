@@ -1,142 +1,332 @@
 $(document).ready( function (){
 
-/*
-var f=$.farbtastic('#color-picker');
-f.linkTo(function(){
-    updateColor();
-});
-*/
-
 var canvas = document.getElementById("video");
 var ctx = canvas.getContext("2d");
 
-var buttonOn=[0,0,0,0,0,0];
+var lights={
+    "zone": [
+        {
+            "id": "one",
+            "status": 0
+        },
+        {
+            "id": "two",
+            "status": 0
+        },
+        {
+            "id": "three",
+            "status": 0
+        },
+        {
+            "id": "four",
+            "status": 0
+        },
+        {
+            "id": "five",
+            "status": 0
+        },
+        {
+            "id": "six",
+            "status": 0
+        },
+        {
+            "id": "seven",
+            "status": 0
+        },
+        {
+            "id": "eight",
+            "status": 0
+        },
+        {
+            "id": "nine",
+            "status": 0
+        }
+    ]
+};
 
 var mouseOver=null;
 
-var color=[[0,0,100],[0,0,100],[0,0,100],[0,0,100],[0,0,100],[0,0,100]];
+var showPaths=true;
 
-
-updateColor();
 definePaths(null);
 
 
 
 function definePaths(event, which){
-	var checkHighlight=0;
+	var checkHighlight=null;
 	canvas.width=canvas.width;
-	console.log(buttonOn);
 
+	ctx.globalAlpha=1;
 	ctx.beginPath();
-		ctx.moveTo(296,1);
-		ctx.lineTo(284,15);
-		ctx.lineTo(262,15);
-		ctx.lineTo(273,28);
-		ctx.lineTo(271,48);
-		ctx.lineTo(291,32);
-		ctx.lineTo(312,48);
-		ctx.lineTo(304,25);
-		ctx.lineTo(322,18);
-		ctx.lineTo(301,8);
-		ctx.lineTo(296,1);
+		ctx.moveTo(300,52);
+		ctx.lineTo(288,64);
+		ctx.lineTo(267,64);
+		ctx.lineTo(277,77);
+		ctx.lineTo(275,96);
+		ctx.lineTo(294,81);
+		ctx.lineTo(314,96);
+		ctx.lineTo(307,74);
+		ctx.lineTo(325,68);
+		ctx.lineTo(305,58);
+		ctx.lineTo(300,52);
 		if (event!=null){
 			if (IsInPath(event)) {
-				if(buttonOn[0]==0){	
-					buttonOn[0]=1;
-				}
-				else{
-					buttonOn[0]=0;
+				if(which==0){
+					if(lights.zone[0].status==0){	
+						lights.zone[0].status=1;
+					}
+					else{
+						lights.zone[0].status=0;
+					}
 				}	
+				else{
+					checkHighlight=0;
+				}
 			}
 		}
-		if(buttonOn[0]==1){
-			makeSelected(0);
-		} 
-		else{
-			makeUnSelected();
-		}
-	ctx.closePath();
-    ctx.stroke();
 
+	ctx.closePath();
+	if(lights.zone[0].status==1){
+		makeSelected(0);
+	} 
+    if(checkHighlight==0){
+		makeHighlighted(0);
+	}
+
+    ctx.globalAlpha=1;
 	ctx.beginPath();
-		ctx.moveTo(357,80);
-		ctx.bezierCurveTo(356,67,237,71,237,80);
-		ctx.bezierCurveTo(237,89,237,109,237,99);
-		ctx.bezierCurveTo(237,89,357,89,357,99);
-		ctx.bezierCurveTo(357,109,357,93,357,80);
+		ctx.moveTo(373,133);
+		ctx.bezierCurveTo(373,121,258,124,258,133);
+		ctx.bezierCurveTo(258,141,258,159,258,150);
+		ctx.bezierCurveTo(258,141,373,141,373,150);
+		ctx.bezierCurveTo(373,159,374,145,373,133);
+
 
 		if (event!=null){
 			if (IsInPath(event)) {
-				if(buttonOn[1]==0){	
-					buttonOn[1]=1;
+				if(which==0){
+					if(lights.zone[1].status==0){	
+						lights.zone[1].status=1;
+					}
+					else{
+						lights.zone[1].status=0;
+					}
 				}
 				else{
-					buttonOn[1]=0;
+					checkHighlight=1;
 				}
 			}
 		}
-		if(buttonOn[1]==1){
-				makeSelected(1);
-			} 
-			else{
-				makeUnSelected();
-			}
-	ctx.closePath();
-    ctx.stroke();
 
+	ctx.closePath();
+	if(lights.zone[1].status==1){
+			makeSelected(1);
+		} 
+    if(checkHighlight==1){
+		makeHighlighted(1);
+	}
+
+    ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(382,120);
-		ctx.bezierCurveTo(382,105,211,98,210,109);
-		ctx.bezierCurveTo(209,120,208,144,208,132);
-		ctx.bezierCurveTo(209,120,381,131,380,143);
-		ctx.bezierCurveTo(379,155,382,136,382,120);
+		ctx.moveTo(394,173);
+		ctx.bezierCurveTo(394,160,243,163,243,173);
+		ctx.bezierCurveTo(243,182,243,202,243,192);
+		ctx.bezierCurveTo(243,182,394,182,394,193);
+		ctx.bezierCurveTo(394,203,395,186,394,173);
+
 		if (event!=null){
 			if (IsInPath(event)) {
-				if(buttonOn[2]==0){	
-					buttonOn[2]=1;
+				if(which==0){
+					if(lights.zone[2].status==0){	
+						lights.zone[2].status=1;
+					}
+					else{
+						lights.zone[2].status=0;
+					}
 				}
 				else{
-					buttonOn[2]=0;
+					checkHighlight=2;
 				}
 			}
 		}
-		if(buttonOn[2]==1){
-				makeSelected(2);
-			} 
-			else{
-				makeUnSelected();
-			}
+
 	ctx.closePath();
-    ctx.stroke();
+	if(lights.zone[2].status==1){
+		makeSelected(2);
+	} 
+    if(checkHighlight==2){
+		makeHighlighted(2);
+	}
 
 
-
+	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(413,158);
-		ctx.bezierCurveTo(412,139,175,145,175,158);
-		ctx.bezierCurveTo(175,171,175,200,175,185);
-		ctx.bezierCurveTo(175,171,413,171,413,185);
-		ctx.bezierCurveTo(413,200,414,177,413,158);
+		ctx.moveTo(406,217);
+		ctx.bezierCurveTo(405,202,226,206,226,217);
+		ctx.bezierCurveTo(226,228,226,252,226,240);
+		ctx.bezierCurveTo(226,228,406,228,406,240);
+		ctx.bezierCurveTo(406,252,407,233,406,217);
+
 		if (event!=null){
 			if (IsInPath(event)) {
-				if(buttonOn[3]==0){	
-					buttonOn[3]=1;
+				if(which==0){
+					if(lights.zone[3].status==0){	
+						lights.zone[3].status=1;
+					}
+					else{
+						lights.zone[3].status=0;
+					}
 				}
 				else{
-					buttonOn[3]=0;
+					checkHighlight=3;
 				}
 			}
 		}
-		if(buttonOn[3]==1){
-				makeSelected(3);
-			} 
-			else{
-				makeUnSelected();
-			}
+
 	ctx.closePath();
-    ctx.stroke();
-    console.log(event);
-    console.log(which);
+	if(lights.zone[3].status==1){
+		makeSelected(3);
+	}
+    if(checkHighlight==3){
+		makeHighlighted(3);
+	}
+
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(421,262);
+		ctx.bezierCurveTo(420,245,214,250,214,262);
+		ctx.bezierCurveTo(214,275,214,301,214,288);
+		ctx.bezierCurveTo(214,275,421,275,421,288);
+		ctx.bezierCurveTo(421,301,422,280,421,262);
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[4].status==0){	
+						lights.zone[4].status=1;
+					}
+					else{
+						lights.zone[4].status=0;
+					}
+				}
+				else{
+					checkHighlight=4;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[4].status==1){
+		makeSelected(4);
+	}
+    if(checkHighlight==4){
+		makeHighlighted(4);
+	}
+
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(430,314);
+		ctx.bezierCurveTo(429,294,204,300,204,314);
+		ctx.bezierCurveTo(204,328,204,359,204,344);
+		ctx.bezierCurveTo(204,328,430,328,430,344);
+		ctx.bezierCurveTo(430,359,431,334,430,314);
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[5].status==0){	
+						lights.zone[5].status=1;
+					}
+					else{
+						lights.zone[5].status=0;
+					}
+				}
+				else{
+					checkHighlight=5;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[5].status==1){
+		makeSelected(5);
+	}
+    if(checkHighlight==5){
+		makeHighlighted(5);
+	}
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(443,364);
+		ctx.bezierCurveTo(441,344,191,350,191,364);
+		ctx.bezierCurveTo(191,378,191,409,191,394);
+		ctx.bezierCurveTo(191,378,443,378,443,394);
+		ctx.bezierCurveTo(443,409,444,384,443,364);
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[6].status==0){	
+						lights.zone[6].status=1;
+					}
+					else{
+						lights.zone[6].status=0;
+					}
+				}
+				else{
+					checkHighlight=6;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[6].status==1){
+		makeSelected(6);
+	}
+    if(checkHighlight==6){
+		makeHighlighted(6);
+	}
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(453,411);
+		ctx.bezierCurveTo(452,388,179,395,179,411);
+		ctx.bezierCurveTo(179,428,179,463,179,445);
+		ctx.bezierCurveTo(179,428,453,428,453,445);
+		ctx.bezierCurveTo(453,463,454,434,453,411);
+
+
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[7].status==0){	
+						lights.zone[7].status=1;
+					}
+					else{
+						lights.zone[7].status=0;
+					}
+				}
+				else{
+					checkHighlight=7;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[7].status==1){
+		makeSelected(7);
+	}
+    if(checkHighlight==7){
+		makeHighlighted(7);
+	}
+
 }
 
 function IsInPath(event) {
@@ -149,52 +339,26 @@ function IsInPath(event) {
 
 function makeSelected(bulb){
     ctx.lineWidth= 2;
-    ctx.strokeStyle= 'hsl('+color[bulb][0]+','+color[bulb][1]+'%,'+color[bulb][2]+'%)';
-}
-function makeUnSelected(){
-    ctx.lineWidth= 1;
-    ctx.strokeStyle= "white";
+    ctx.strokeStyle= 'white';
+    ctx.stroke();
 }
 
 function makeHighlighted(bulb){
-    ctx.fillStyle= 'hsl('+color[bulb][0]+','+color[bulb][1]+'%,'+color[bulb][2]+'%)';
+	ctx.lineWidth= 1;
+    ctx.strokeStyle= 'white';
+    ctx.stroke();
+	ctx.globalAlpha=0.5;
+    ctx.fillStyle= 'white';
+    ctx.fill();
 }
-
-function updateColor(){
-   for(var i=0;i<buttonOn.length;i++){
-   		if(buttonOn[i]==1){
-			color[i][0]=f.hsl[0]*360;
-			color[i][1]=f.hsl[1]*100;
-			color[i][2]=f.hsl[2]*100;
-		}
-	}
-	definePaths();
-  }
 
   $('#video').click(function(e){
   	definePaths(e,0);
   });
 
-  $('#video').mouseover(function(e){
+  $('#video').mousemove(function(e){
   	definePaths(e,1);
   });
-
-  //deselect all listener
-$('#deselect').click(function(){
-  for(var i=0;i<buttonOn.length;i++){
-  	buttonOn[i]=0;
-  }
-  definePaths();
-});
-
-//select all listener
-$('#select').click(function(){
-  for(var i=0;i<buttonOn.length;i++){
-  	buttonOn[i]=1;
-  	  console.log('all');
-  }
-  definePaths();
-});
 
 
 });
