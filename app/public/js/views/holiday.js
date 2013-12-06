@@ -1,9 +1,11 @@
 $(document).ready( function (){
 
+/*
 var f=$.farbtastic('#color-picker');
 f.linkTo(function(){
     updateColor();
 });
+*/
 
 var canvas = document.getElementById("video");
 var ctx = canvas.getContext("2d");

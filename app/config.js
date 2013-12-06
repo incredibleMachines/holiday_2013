@@ -13,7 +13,7 @@ colors.setTheme({
 module.exports = function(app, exp, MongoStore) {
 
 	app.configure(function(){
-		app.use(exp.basicAuth('username', 'password'));
+		app.use(exp.basicAuth('user', 'securitree'));
 
 		app.set('views', app.root + '/app/server/views'); // setup the location of the views
 		app.set('view engine', 'jade'); // set the view engine to jade
