@@ -297,7 +297,7 @@ exports.createSockets = function(app, io, AM){
 
         //handle a connection from a IO socket -- this is after the handshack is validated
         io.sockets.on('connection', function (socket) {
-
+		  	console.log('Connection!');
           socket.on('message', function(message) {        // handle a message from the client
                   //console.log(JSON.parse(message));
                   API.parseMessage(message,Bulbs,function(o,e){ // this parses the json from the web socket
@@ -312,6 +312,7 @@ exports.createSockets = function(app, io, AM){
           // handle client disconnect
           socket.on('disconnect', function(){
                   //clients.splice(arrayObjectIndexOf(clients,socket,'iosocket'),1);
+                  console.log("DISCONNECT");
           });
         });//end io.sockets.on
 }

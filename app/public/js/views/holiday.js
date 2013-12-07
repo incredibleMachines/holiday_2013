@@ -1,5 +1,12 @@
 $(document).ready( function (){
 
+//holiday controller to server 
+var hc = new HolidayController( function(){} )
+
+console.log(hc);
+
+
+
 var canvas = document.getElementById("video");
 var ctx = canvas.getContext("2d");
 
