@@ -88,39 +88,55 @@ var lights={
     "zone": [
         {
             "id": "52a0caf4182adc5c1b000005",
-            "status": 0
+            "status": 0,
+            "slug":"blank"
         },
         {
             "id": "52a0c953182adc5c1b000004",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "52a0c900182adc5c1b000003",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "52a0c81e182adc5c1b000002",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "52a0ddb1182adc5c1b000006",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
+            
         },
         {
             "id": "52a204b958435b250b000001",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "52a2086c58435b250b000002",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "52a20cfe58435b250b000003",
-            "status": 0
+            "status": 0,
+            "slug": "blank"
         },
         {
             "id": "nine",
-            "status": 0
+            "status": 0,
+   	        "slug": "blank"
+
+        },
+        {
+	        "id":"ten",
+	        "status":0,
+	        "slug": "blank"
         }
     ]
 };
