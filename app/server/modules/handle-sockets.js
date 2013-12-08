@@ -140,7 +140,7 @@ exports.createSockets = function(app, io, AM){
                                                                           Bulbs[cleanbulbID] = {_id: cleanbulbID, mac: mac, netsocket: socket };
                                                                           connection_id = cleanbulbID;
                                                                   }else{
-																																					AM.updateBulbStatus(cleanbulbID,1,Bulbs[cleanbulbID].color,function(){}); // see if this is too many READ/WRITES
+																		  AM.updateBulbStatus(cleanbulbID,1,Bulbs[cleanbulbID].color,function(){}); // see if this is too many READ/WRITES
                                                                           sendToVisualight(o,true); // this should be where we send back a heartbeat acknowledge...
                                                                           //socket.write('H'); //writing to the socket
 

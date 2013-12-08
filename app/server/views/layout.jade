@@ -7,9 +7,9 @@ html
 		link(rel='stylesheet', href='/vendor/bootstrap-responsive.css')
 		link(rel='stylesheet', href='/vendor/bootstrap-modal.css')
 		- if(typeof(holiday)!=='undefined')
+				//link(rel='stylesheet', href='/css/video.css')
 				link(rel='stylesheet', href='/css/holiday.css')
-				link(rel='stylesheet', href='/css/video.css')
-				//link(rel='stylesheet', href='/css/history.css')
+
 				script(type='text/javascript', src='/vendor/swfobject.js')
 				script(type='text/javascript')
 					// For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
@@ -33,7 +33,6 @@ html
 					flashvars, params, attributes);
 					// JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
 					swfobject.createCSS("#flashContent", "display:block;text-align:left;");
-					console.log('yea dog')
 		- else
 				link(rel='stylesheet',href='/css/style.css')
 		

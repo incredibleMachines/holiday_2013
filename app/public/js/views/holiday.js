@@ -1,47 +1,121 @@
 $(document).ready( function (){
 
 //holiday controller to server 
-var hc = new HolidayController( function(){} )
+var hc = new HolidayController( function(){
+	
+	
+	
+	
+} )
 
 console.log(hc);
 
+//slider for HUE functionality
+var tip = $('<div class="btn btn-inverse" />').css({
+    position: 'absolute',
+    top: -30,
+    left: -15
+}).show().text(1);
+
+$('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
+	    value: 1,
+	    min: -1,
+	    max:361,
+	    slide: function(event, ui) {
+	        tip.text(ui.value);
+	    },
+	    change: function(event, ui) {},
+	    stop:function(event,ui){
+		    hc.updateHue(ui.value*182.04 );//send update to our obj
+
+	    }
+	}).find(".ui-slider-handle").append(tip).hover(function() {
+	    tip.show()
+	}, function() {
+	    //durationtip.hide()
+	});
+
+//control buttons for alerts and speeds and such
 
 
+$('#freq li, #dur li').click(function(e){
+		e.preventDefault();
+		//send api call updating speed of alert;
+		console.log($(this));
+		$(this).toggleClass('disabled').toggleClass('active');
+		var siblings = $(this).siblings().addClass('disabled').removeClass('active');
+		//send our alerts
+		//check for button state
+		holidayAlert();
+
+});
+
+$('#alerts button[name=alert-type]').click(function(e){
+		//alert($(this).val())
+		holidayAlert();
+		//set this up to send alerts over.
+})
+
+function holidayAlert(){
+		var alert = {};
+
+		var type = $('#alerts').find('.active');
+
+		if(type.length == 0) alert.type=0;
+		else alert.type=parseInt($(type[0]).val());
+		
+		//get freq && dur
+		
+		var freq = $('#freq').find('.active')
+
+		if(freq.length == 0) alert.frequency=0;
+		else alert.frequency= parseInt($(freq[0]).val());
+		
+		var dur = $('#dur').find('.active');
+		
+		if(dur.length == 0) alert.duration = 1;
+		else alert.duration = parseInt($(dur[0]).val());
+		
+		hc.sendAlert(alert);
+		console.log(alert);
+}
+
+//canvas stuff
 var canvas = document.getElementById("video");
 var ctx = canvas.getContext("2d");
 
 var lights={
     "zone": [
         {
-            "id": "one",
+            "id": "52a0caf4182adc5c1b000005",
             "status": 0
         },
         {
-            "id": "two",
+            "id": "52a0c953182adc5c1b000004",
             "status": 0
         },
         {
-            "id": "three",
+            "id": "52a0c900182adc5c1b000003",
             "status": 0
         },
         {
-            "id": "four",
+            "id": "52a0c81e182adc5c1b000002",
             "status": 0
         },
         {
-            "id": "five",
+            "id": "52a0ddb1182adc5c1b000006",
             "status": 0
         },
         {
-            "id": "six",
+            "id": "52a204b958435b250b000001",
             "status": 0
         },
         {
-            "id": "seven",
+            "id": "52a2086c58435b250b000002",
             "status": 0
         },
         {
-            "id": "eight",
+            "id": "52a20cfe58435b250b000003",
             "status": 0
         },
         {
@@ -81,9 +155,13 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[0].status==0){	
 						lights.zone[0].status=1;
+						//this is where we draw this out
+						hc.addFixtureToControl(lights.zone[0].id);
 					}
 					else{
 						lights.zone[0].status=0;
+						//this is the deselect
+						hc.removeFixtureFromControl(lights.zone[0].id);
 					}
 				}	
 				else{
@@ -114,9 +192,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[1].status==0){	
 						lights.zone[1].status=1;
+						hc.addFixtureToControl(lights.zone[1].id);
+
 					}
 					else{
 						lights.zone[1].status=0;
+						hc.removeFixtureFromControl(lights.zone[1].id);
 					}
 				}
 				else{
@@ -146,9 +227,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[2].status==0){	
 						lights.zone[2].status=1;
+						hc.addFixtureToControl(lights.zone[2].id);
+
 					}
 					else{
 						lights.zone[2].status=0;
+						hc.removeFixtureFromControl(lights.zone[2].id);
 					}
 				}
 				else{
@@ -179,9 +263,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[3].status==0){	
 						lights.zone[3].status=1;
+						hc.addFixtureToControl(lights.zone[3].id);
+
 					}
 					else{
 						lights.zone[3].status=0;
+						hc.removeFixtureFromControl(lights.zone[3].id);
 					}
 				}
 				else{
@@ -213,9 +300,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[4].status==0){	
 						lights.zone[4].status=1;
+						hc.addFixtureToControl(lights.zone[4].id);
+
 					}
 					else{
 						lights.zone[4].status=0;
+						hc.removeFixtureFromControl(lights.zone[4].id);
 					}
 				}
 				else{
@@ -247,9 +337,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[5].status==0){	
 						lights.zone[5].status=1;
+						hc.addFixtureToControl(lights.zone[5].id);
+
 					}
 					else{
 						lights.zone[5].status=0;
+						hc.removeFixtureFromControl(lights.zone[5].id);
 					}
 				}
 				else{
@@ -280,9 +373,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[6].status==0){	
 						lights.zone[6].status=1;
+						hc.addFixtureToControl(lights.zone[6].id);
+
 					}
 					else{
 						lights.zone[6].status=0;
+						hc.removeFixtureFromControl(lights.zone[6].id);
 					}
 				}
 				else{
@@ -315,9 +411,12 @@ function definePaths(event, which){
 				if(which==0){
 					if(lights.zone[7].status==0){	
 						lights.zone[7].status=1;
+						hc.addFixtureToControl(lights.zone[7].id);
+
 					}
 					else{
 						lights.zone[7].status=0;
+						hc.removeFixtureFromControl(lights.zone[7].id);
 					}
 				}
 				else{
@@ -348,6 +447,7 @@ function makeSelected(bulb){
     ctx.lineWidth= 2;
     ctx.strokeStyle= 'white';
     ctx.stroke();
+    //add bulb to state object
 }
 
 function makeHighlighted(bulb){
