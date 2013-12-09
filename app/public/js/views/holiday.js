@@ -147,13 +147,14 @@ var lights={
 	        "slug": "blank"
         },
         {
-            "id": "52a2146d58435b250b000005",
+            
+            "id":"52a5ea6d494c148f1b000001",
             "status": 0,
    	        "slug": "blank"
 
         },
         {
-	        "id":"52a5ea6d494c148f1b000001",
+	        "id": "52a2146d58435b250b000005",
 	        "status":0,
 	        "slug": "blank"
         }
