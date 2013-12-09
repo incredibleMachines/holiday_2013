@@ -42,43 +42,53 @@ function HolidayController(mainCallback){
 	}
 	
 	this.updateHue=function (hue,callback){
-		//check if hue is -1 or 361 (black or white)
-		//change hsl to reflect
-		//then change back
-		switch(hue){
-			case -1*182.04:
-				console.log("White");
-				state.sat = 0;
-				state.hue = 0;
-				state.bri = 254;
-				_this.sendAPICall();
-				//set defaults back
-				state.sat= 211;
-				state.bri=120;
-				break;
-			case 361*182.04:
-				console.log("Black");
-				state.sat = 0;
-				state.hue = 0;
-				state.bri = 0;
-				_this.sendAPICall();
-				//set defaults back
-				state.sat= 211;
-				state.bri=120;
-				break;
-			default:
-				state.hue=hue;
-				console.log('hue changed');
-				_this.sendAPICall();
-				break;
-				
+		//check if ids object is empty
+		if(state.ids.length<=0){
+			alert('Select a light to change first')
+		}else{
+			//check if hue is -1 or 361 (black or white)
+			//change hsl to reflect
+			//then change back
+			switch(hue){
+				case -1*182.04:
+					//console.log("White");
+					state.sat = 0;
+					state.hue = 0;
+					state.bri = 254;
+					_this.sendAPICall();
+					//set defaults back
+					state.sat= 211;
+					state.bri=120;
+					break;
+				case 361*182.04:
+					//console.log("Black");
+					state.sat = 0;
+					state.hue = 0;
+					state.bri = 0;
+					_this.sendAPICall();
+					//set defaults back
+					state.sat= 211;
+					state.bri=120;
+					break;
+				default:
+					state.hue=hue;
+					//console.log('hue changed');
+					_this.sendAPICall();
+					break;
+					
+			}
 		}
 	}
 	
-	this.sendAlert= function(alert){
-		var obj = JSON.parse(JSON.stringify(state)); //explicity copy the data into a new object
-		obj.alert = alert;
-		_this.sendAPICall(obj);
+	this.sendAlert= function(_alert){
+		//some confusion with the namespace alert here.
+		if(state.ids.length<=0){
+			alert('Select a light to change first');
+		}else{
+			var obj = JSON.parse(JSON.stringify(state)); //explicity copy the data into a new object
+			obj.alert = _alert;
+			_this.sendAPICall(obj);
+		}
 	}
 	
 	

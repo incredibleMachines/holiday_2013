@@ -8,8 +8,6 @@ var hc = new HolidayController( function(){
 	
 } )
 
-console.log(hc);
-
 //slider for HUE functionality
 var tip = $('<div class="btn btn-inverse" />').css({
     position: 'absolute',

@@ -34,30 +34,31 @@ section#main
 		
 		canvas#video(width="768px", height= "576px")    
 	nav
-		#hue
-		#alerts.btn-group(data-toggle='buttons-radio')
-			button.btn(name='alert-type', value='1') Fade
-			button.btn(name='alert-type', value='0') Blink
-		#speed.btn-group(data-toggle='buttons-radio')
-			button.btn.dropdown-toggle(data-toggle='dropdown') Speed &nbsp;
-				span.caret 
-			ul.dropdown-menu#freq
-				li(value='0').disabled
-					a(href="#", value='0') &nbsp; Slow
-				li(value='4').disabled
-					a(href="#", value='4') &nbsp; Medium
-				li(value='9').disabled
-					a(href="#", value='9') &nbsp; Fast
-		#length.btn-group(data-toggle='buttons-radio')
-			button.btn.dropdown-toggle(data-toggle='dropdown') Length &nbsp;
-				span.caret 
-			ul.dropdown-menu#dur
-				li(value='1').disabled 
-					a(href="#", value='1') &nbsp; Minimum
-				li(value='332').disabled
-					a(href="#", value='332') &nbsp; Median
-				li(value='664').disabled
-					a(href="#",value='664') &nbsp; Maximum
+		.controls
+			#hue
+			#alerts.btn-group(data-toggle='buttons-radio')
+				button.btn(name='alert-type', value='1') Fade
+				button.btn(name='alert-type', value='0') Blink
+			#speed.btn-group(data-toggle='buttons-radio')
+				button.btn.dropdown-toggle(data-toggle='dropdown') Speed &nbsp;
+					span.caret 
+				ul.dropdown-menu#freq
+					li(value='0').disabled
+						a(href="#", value='0') &nbsp; Slow
+					li(value='4').disabled
+						a(href="#", value='4') &nbsp; Medium
+					li(value='9').disabled
+						a(href="#", value='9') &nbsp; Fast
+			#length.btn-group(data-toggle='buttons-radio')
+				button.btn.dropdown-toggle(data-toggle='dropdown') Length &nbsp;
+					span.caret 
+				ul.dropdown-menu#dur
+					li(value='1').disabled 
+						a(href="#", value='1') &nbsp; Minimum
+					li(value='332').disabled
+						a(href="#", value='332') &nbsp; Median
+					li(value='664').disabled
+						a(href="#",value='664') &nbsp; Maximum
 
 
 			
@@ -78,3 +79,5 @@ script(type='text/javascript', src='/vendor/bootstrap-modalmanager.js')
 script(type='text/javascript', src='/vendor/bootstrap-modal.js')
 script(type='text/javascript', src="/vendor/bootstrap-collapse.js")
 script(type='text/javascript', src='/vendor/bootstrap-dropdown.js')
+
+script(type='text/javascript', src='/vendor/bootstrap-alert.js')
