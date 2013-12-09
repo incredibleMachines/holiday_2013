@@ -9,26 +9,28 @@ var hc = new HolidayController( function(){
 } )
 
 //slider for HUE functionality
+/*
 var tip = $('<div class="btn btn-inverse" />').css({
     position: 'absolute',
     top: -30,
     left: -15
 }).show().text(1);
+*/
 
 $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	    value: 1,
 	    min: -1,
 	    max:361,
 	    slide: function(event, ui) {
-	        tip.text(ui.value);
+	        //tip.text(ui.value);
 	    },
 	    change: function(event, ui) {},
 	    stop:function(event,ui){
 		    hc.updateHue(ui.value*182.04 );//send update to our obj
 
 	    }
-	}).find(".ui-slider-handle").append(tip).hover(function() {
-	    tip.show()
+	}).find(".ui-slider-handle")/*.append(tip)*/.hover(function() {
+	    //tip.show()
 	}, function() {
 	    //durationtip.hide()
 	});
@@ -50,19 +52,27 @@ $('#freq li, #dur li').click(function(e){
 
 $('#alerts button[name=alert-type]').click(function(e){
 		//alert($(this).val())
-		holidayAlert();
+		holidayAlert(this);
 		//set this up to send alerts over.
 })
 
-function holidayAlert(){
+function holidayAlert(_obj){
 		var alert = {};
 
-		var type = $('#alerts').find('.active');
-
-		if(type.length == 0) alert.type=0;
-		else alert.type=parseInt($(type[0]).val());
+		if(_obj != null){
 		
-		//get freq && dur
+			alert.type= parseInt($(_obj).val());
+			$(_obj).removeClass('active');
+		
+		}else{
+			var type = $('#alerts').find('.active');
+	
+			if(type.length == 0) alert.type=0;
+			else alert.type=parseInt($(type[0]).val());
+
+			$(type[0]).removeClass('active');
+
+		}
 		
 		var freq = $('#freq').find('.active')
 

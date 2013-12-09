@@ -279,6 +279,8 @@ exports.createSockets = function(app, io, AM){
         io.configure(function (){
                 io.set('authorization', function(data, accept) { // this adds authorization to the socket IO handshake procedure
                     if(data.query.session) { // did we get session data?
+                    	return accept(null, true);
+/*
                                 AM.validateSession(data.query.session, function(o){ // check and see if this session is valid
                                         if(o==null){ // we got a valid session!
                                                 //console.log(data.query.session);
@@ -288,6 +290,7 @@ exports.createSockets = function(app, io, AM){
                                                     return accept('Invalid session transmitted', false);
                                             }
                                         });
+*/
 
                     } else { // no session
                         return accept('No session transmitted', false);
