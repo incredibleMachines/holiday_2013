@@ -1,8 +1,14 @@
+body{
+	background: url('/img/tile.jpg') repeat;
+}
+
 section#main{
 	position:relative;
-	width:960px;
-	height: 100%;
+	width:870px;
+	height: 1300px;
 	margin: 0 auto;
+	background-color:white;
+	z-index:0;
 }
 #holiday-magic{
 	position: relative;
@@ -11,27 +17,71 @@ section#main{
 	margin: 0 auto;
 	display:block;
 }
+
+#header{
+	position:absolute;
+	z-index:110;
+}
+
+#text{
+	position:absolute;
+	width:330px;
+	font-family:"museo-slab", "Museo Slab", courier, serif;
+	font-weight:300;
+	font-size:16px;
+	top:100px;
+	left:460px;
+}
+
+.bold{
+	font-weight:700;
+}
+
+.normal{
+	float:left;
+}
+
 object {
 	position: absolute;
+	top:260px;
 	width:768px;
 	height:576px;
-	z-index: -9999;
+	z-index: 1;
 }
+
 nav{
 	display:block;
-	width: 708px;
-	margin: 0 auto;
-	background-color: #e9e9e9;
-	padding: 5px 30px;
+	position:absolute;
+	top:837px;
+	left:51px;
+	width: 768px;
+	height:60px;
+	background-color: black;
+	padding: 5px 0;
 }
+
+#hacker-label{
+	display:inline-block;
+	color:white;
+	font-size:22px;
+	text-transform:uppercase;
+	font-family:"proxima-nova-sc-osf-ext-cond", "Proxima Nova Condensed", "Arial narrow", arial, sans-serif;
+	vertical-align:top;
+	margin-top:20px;
+	margin-left:10px;
+	margin-right:10px;
+}
+
 div#alerts, div#speed, div#length, div#hue{
 	display: inline-block;
-	margin: 5px 15px;
+	margin: 5px 8px;
+	margin-top:15px;
 	
 }
 canvas#video{
 	position:absolute;
- 	z-index: 9999;
+ 	z-index: 100;
+ 	top:260px;
 
 }
 
@@ -40,7 +90,39 @@ canvas#video{
 	height:26px;
 	background-image:url('/img/hslbackground.png');
 }
+
 .ui-slider .ui-slider-handle{
 	width: 7px !important; 
 	height: 30px !important;
 }
+
+#signature {
+	position:absolute;
+	top:910px;
+	width:760px;
+	left:55px;
+}
+
+#footer{
+	position:absolute;
+	top:1270px;
+	background:black;
+	height:160px;
+}
+
+.links{
+	margin-top:20px;
+	float:left;
+}
+
+.vis-logo{
+	padding-right:150px;
+}
+
+.copyright{
+	color:white;
+	display:inline;
+	padding-left:80px;
+}
+
+

@@ -1,5 +1,12 @@
 section#main
+	section#header
+		#text
+			span(class="bold") We're relinquishing control of our office tree to the world wide web.
+			span(class="normal") Click on the strands of lights to change their color in real time.
+		img(src='/img/header.png')
+
 	section#holiday-magic
+
 		#flashContent
 			p To view this page ensure that Adobe Flash Player version 11.1.0 or greater is installed. 
 			script(type='text/javascript') 
@@ -33,8 +40,10 @@ section#main
 				// <! Well, Well, Well, look whos snooping. !>
 		
 		canvas#video(width="768px", height= "576px")    
+	
 	nav
 		.controls
+			#hacker-label Hacker Controls:
 			#hue
 			#alerts.btn-group
 				button.btn(name='alert-type', value='1') Fade
@@ -59,6 +68,17 @@ section#main
 						a(href="#", value='332') &nbsp; Median
 					li(value='664').disabled
 						a(href="#",value='664') &nbsp; Maximum
+	#signature
+		img(src='/img/signature.png')
+
+	#footer
+		a(href='http://www.incrediblemachines.net', target="_blank"): img(src='/img/footer_im.jpg')
+		.links
+			img(src='/img/vis_logo.jpg', class='vis-logo')
+			<span class='st_twitter_hcount' displayText='Tweet'></span>
+			<span class='st_facebook_hcount' displayText='Facebook'></span>
+			<span class='st_pinterest_hcount' displayText='Pinterest'></span>
+			.copyright (c) Incredible Machines, 2013
 
 
 			
