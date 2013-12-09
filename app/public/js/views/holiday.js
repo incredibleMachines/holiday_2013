@@ -136,24 +136,24 @@ var lights={
             "slug": "blank"
         },
         {
-            "id": "nine",
+            "id": "52a24e38aaa4ac750c000001",
             "status": 0,
    	        "slug": "blank"
 
         },
         {
-	        "id":"ten",
+	        "id":"52a5efd37a391a7a1c000001",
 	        "status":0,
 	        "slug": "blank"
         },
         {
-            "id": "eleven",
+            "id": "52a2146d58435b250b000005",
             "status": 0,
    	        "slug": "blank"
 
         },
         {
-	        "id":"twelve",
+	        "id":"52a5ea6d494c148f1b000001",
 	        "status":0,
 	        "slug": "blank"
         }

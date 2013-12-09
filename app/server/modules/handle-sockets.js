@@ -77,10 +77,9 @@ exports.createSockets = function(app, io, AM){
                 });
 
           // this is the function that gets called when the bulb sends data
-                socket.on('data', function(data){
+                socket.on('data', function(data){ 
                         //console.log(data); // debug only see exactly what is sent from netsocket
-						
-                        try { 			console.log()
+                        try { 			console.log('Trying to parse data: '.info)
                         				console.log(data.data)
                                         data = JSON.parse(data) 
                                         if(!data.mac) {
