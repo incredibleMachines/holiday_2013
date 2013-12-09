@@ -25,12 +25,13 @@ section#main{
 
 #text{
 	position:absolute;
-	width:330px;
+	width:290px;
 	font-family:"museo-slab", "Museo Slab", courier, serif;
 	font-weight:300;
 	font-size:16px;
+	line-height:22px;
 	top:100px;
-	left:460px;
+	left:480px;
 }
 
 .bold{
