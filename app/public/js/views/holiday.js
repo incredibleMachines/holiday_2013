@@ -135,6 +135,17 @@ var lights={
 	        "id":"ten",
 	        "status":0,
 	        "slug": "blank"
+        },
+        {
+            "id": "eleven",
+            "status": 0,
+   	        "slug": "blank"
+
+        },
+        {
+	        "id":"twelve",
+	        "status":0,
+	        "slug": "blank"
         }
     ]
 };
@@ -440,6 +451,146 @@ function definePaths(event, which){
 	}
     if(checkHighlight==7){
 		makeHighlighted(7);
+	}
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(86,60);
+		ctx.bezierCurveTo(86,60,15,161,64,192);
+		ctx.bezierCurveTo(146,246,323,86,229,34);
+		ctx.bezierCurveTo(183,9,86,60,86,60);
+
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[8].status==0){	
+						lights.zone[8].status=1;
+						hc.addFixtureToControl(lights.zone[8].id);
+
+					}
+					else{
+						lights.zone[8].status=0;
+						hc.removeFixtureFromControl(lights.zone[8].id);
+					}
+				}
+				else{
+					checkHighlight=8;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[8].status==1){
+		makeSelected(8);
+	}
+    if(checkHighlight==8){
+		makeHighlighted(8);
+	}
+
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(551,47);
+		ctx.bezierCurveTo(551,47,427,-13,406,39);
+		ctx.bezierCurveTo(371,131,552,269,583,165);
+		ctx.bezierCurveTo(598,116,551,47,551,47);
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[9].status==0){	
+						lights.zone[9].status=1;
+						hc.addFixtureToControl(lights.zone[9].id);
+
+					}
+					else{
+						lights.zone[9].status=0;
+						hc.removeFixtureFromControl(lights.zone[9].id);
+					}
+				}
+				else{
+					checkHighlight=9;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[9].status==1){
+		makeSelected(9);
+	}
+    if(checkHighlight==9){
+		makeHighlighted(9);
+	}
+
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(70,351);
+		ctx.bezierCurveTo(70,351,196,411,215,357);
+		ctx.bezierCurveTo(249,264,71,142,42,246);
+		ctx.bezierCurveTo(28,295,70,351,70,351);
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[10].status==0){	
+						lights.zone[10].status=1;
+						hc.addFixtureToControl(lights.zone[10].id);
+
+					}
+					else{
+						lights.zone[10].status=0;
+						hc.removeFixtureFromControl(lights.zone[10].id);
+					}
+				}
+				else{
+					checkHighlight=10;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[10].status==1){
+		makeSelected(10);
+	}
+    if(checkHighlight==10){
+		makeHighlighted(10);
+	}
+
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+		ctx.moveTo(641,376);
+		ctx.bezierCurveTo(641,376,669,229,614,215);
+		ctx.bezierCurveTo(518,191,422,399,528,418);
+		ctx.bezierCurveTo(579,427,641,376,641,376);
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[11].status==0){	
+						lights.zone[11].status=1;
+						hc.addFixtureToControl(lights.zone[11].id);
+
+					}
+					else{
+						lights.zone[11].status=0;
+						hc.removeFixtureFromControl(lights.zone[11].id);
+					}
+				}
+				else{
+					checkHighlight=11;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[11].status==1){
+		makeSelected(11);
+	}
+    if(checkHighlight==11){
+		makeHighlighted(11);
 	}
 
 }
