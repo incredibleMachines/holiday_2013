@@ -153,17 +153,17 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
 	ctx.beginPath();
-		ctx.moveTo(300,52);
-		ctx.lineTo(288,64);
-		ctx.lineTo(267,64);
-		ctx.lineTo(277,77);
-		ctx.lineTo(275,96);
-		ctx.lineTo(294,81);
-		ctx.lineTo(314,96);
-		ctx.lineTo(307,74);
-		ctx.lineTo(325,68);
-		ctx.lineTo(305,58);
-		ctx.lineTo(300,52);
+		ctx.moveTo(349,50);
+		ctx.lineTo(337,62);
+		ctx.lineTo(316,62);
+		ctx.lineTo(326,75);
+		ctx.lineTo(324,94);
+		ctx.lineTo(343,79);
+		ctx.lineTo(363,94);
+		ctx.lineTo(356,72);
+		ctx.lineTo(374,66);
+		ctx.lineTo(354,56);
+		ctx.lineTo(349,50);
 		if (event!=null){
 			if (IsInPath(event)) {
 				if(which==0){
@@ -194,12 +194,11 @@ function definePaths(event, which){
 
     ctx.globalAlpha=1;
 	ctx.beginPath();
-		ctx.moveTo(373,133);
-		ctx.bezierCurveTo(373,121,258,124,258,133);
-		ctx.bezierCurveTo(258,141,258,159,258,150);
-		ctx.bezierCurveTo(258,141,373,141,373,150);
-		ctx.bezierCurveTo(373,159,374,145,373,133);
-
+		ctx.moveTo(406,131);
+		ctx.bezierCurveTo(406,119,291,122,291,131);
+		ctx.bezierCurveTo(291,139,291,157,291,148);
+		ctx.bezierCurveTo(291,139,406,139,406,148);
+		ctx.bezierCurveTo(406,157,407,143,406,131);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -230,11 +229,11 @@ function definePaths(event, which){
 
     ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(394,173);
-		ctx.bezierCurveTo(394,160,243,163,243,173);
-		ctx.bezierCurveTo(243,182,243,202,243,192);
-		ctx.bezierCurveTo(243,182,394,182,394,193);
-		ctx.bezierCurveTo(394,203,395,186,394,173);
+		ctx.moveTo(423,169);
+		ctx.bezierCurveTo(423,156,272,159,272,169);
+		ctx.bezierCurveTo(272,178,272,198,272,188);
+		ctx.bezierCurveTo(272,178,423,178,423,189);
+		ctx.bezierCurveTo(423,199,424,182,423,169);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -266,11 +265,12 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(406,217);
-		ctx.bezierCurveTo(405,202,226,206,226,217);
-		ctx.bezierCurveTo(226,228,226,252,226,240);
-		ctx.bezierCurveTo(226,228,406,228,406,240);
-		ctx.bezierCurveTo(406,252,407,233,406,217);
+		ctx.moveTo(439,215);
+		ctx.bezierCurveTo(438,200,259,204,259,215);
+		ctx.bezierCurveTo(259,226,259,250,259,238);
+		ctx.bezierCurveTo(259,226,439,226,439,238);
+		ctx.bezierCurveTo(439,250,440,231,439,215);
+
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -302,12 +302,11 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(421,262);
-		ctx.bezierCurveTo(420,245,214,250,214,262);
-		ctx.bezierCurveTo(214,275,214,301,214,288);
-		ctx.bezierCurveTo(214,275,421,275,421,288);
-		ctx.bezierCurveTo(421,301,422,280,421,262);
-
+		ctx.moveTo(451,260);
+		ctx.bezierCurveTo(450,243,244,248,244,260);
+		ctx.bezierCurveTo(244,273,244,299,244,286);
+		ctx.bezierCurveTo(244,273,451,273,451,286);
+		ctx.bezierCurveTo(451,299,452,278,451,260);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -339,12 +338,11 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(430,314);
-		ctx.bezierCurveTo(429,294,204,300,204,314);
-		ctx.bezierCurveTo(204,328,204,359,204,344);
-		ctx.bezierCurveTo(204,328,430,328,430,344);
-		ctx.bezierCurveTo(430,359,431,334,430,314);
-
+		ctx.moveTo(461,312);
+		ctx.bezierCurveTo(460,292,235,298,235,312);
+		ctx.bezierCurveTo(235,326,235,357,235,342);
+		ctx.bezierCurveTo(235,326,461,326,461,342);
+		ctx.bezierCurveTo(461,357,462,332,461,312);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -375,12 +373,11 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(443,364);
-		ctx.bezierCurveTo(441,344,191,350,191,364);
-		ctx.bezierCurveTo(191,378,191,409,191,394);
-		ctx.bezierCurveTo(191,378,443,378,443,394);
-		ctx.bezierCurveTo(443,409,444,384,443,364);
-
+		ctx.moveTo(481,363);
+		ctx.bezierCurveTo(479,343,229,349,229,363);
+		ctx.bezierCurveTo(229,377,229,408,229,393);
+		ctx.bezierCurveTo(229,377,481,377,481,393);
+		ctx.bezierCurveTo(481,408,482,383,481,363);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -411,13 +408,11 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(453,411);
-		ctx.bezierCurveTo(452,388,179,395,179,411);
-		ctx.bezierCurveTo(179,428,179,463,179,445);
-		ctx.bezierCurveTo(179,428,453,428,453,445);
-		ctx.bezierCurveTo(453,463,454,434,453,411);
-
-
+		ctx.moveTo(495,412);
+		ctx.bezierCurveTo(494,389,221,396,221,412);
+		ctx.bezierCurveTo(221,429,221,464,221,446);
+		ctx.bezierCurveTo(221,429,495,429,495,446);
+		ctx.bezierCurveTo(495,464,496,435,495,412);
 
 
 		if (event!=null){
