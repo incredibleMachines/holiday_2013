@@ -121,8 +121,9 @@ canvas#video{
 }
 
 .copyright{
-	color:white;
+	color:#666;
 	display:inline;
+	font-size:10px;
 	padding-left:80px;
 }
 
