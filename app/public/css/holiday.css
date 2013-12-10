@@ -5,11 +5,12 @@ body{
 section#main{
 	position:relative;
 	width:870px;
-	height: 1600px;
+	height: 1480px;
 	margin: 0 auto;
 	background-color:white;
 	z-index:0;
 }
+
 #holiday-magic{
 	position: relative;
 	width:768px;
@@ -30,7 +31,7 @@ section#main{
 	font-weight:300;
 	font-size:16px;
 	line-height:22px;
-	top:100px;
+	top:120px;
 	left:480px;
 }
 
@@ -97,16 +98,30 @@ canvas#video{
 	height: 30px !important;
 }
 
+#body-text{
+	position:absolute;
+	top:930px;
+	width:730px;
+	padding-left:55px;
+}
+
+#body-text p{
+	font-family:"museo-slab", "Museo Slab", courier, serif;
+	font-weight:300;
+	font-size: 22px;
+	line-height:30px;
+	padding-bottom: 6px;
+}
+
 #signature {
 	position:absolute;
-	top:910px;
-	width:760px;
-	left:55px;
+	top:1196px;
+	width:870px;
 }
 
 #footer{
 	position:absolute;
-	top:1540px;
+	top:1360px;
 	background:black;
 	height:160px;
 }
@@ -123,14 +138,34 @@ canvas#video{
 
 .copyright{
 	color:#666;
-	display:inline;
+	display:block;
 	font-size:10px;
 	padding-left:180px;
+	padding-top:20px;
+	float:right;
 }
 
 .twitter-share-button{
+	display:block;
 	float:left;
-	padding-top:0;
+	padding-top:16px;
 }
+
+.fb-share-button{
+	display:block;
+	float:left;
+	padding-top:16px;
+}
+
+.super{
+	vertical-align:super;
+	font-size:12px;
+}
+
+.salutation{
+	padding-top:14px;
+}
+
+
 
 
