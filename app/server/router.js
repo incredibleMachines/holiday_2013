@@ -18,7 +18,7 @@ colors.setTheme({
 });
 
 
-module.exports = function(app, io, sStore) { // this gets called from the main app
+module.exports = function(app, exp, io, sStore) { // this gets called from the main app
 
 	//this function sets up the DB connections
 	AM.connectServer(function(e){
@@ -113,7 +113,7 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 * @method get /home
 */
 
-	app.get('/home',AUTH.sessionCheck, function(req, res) {
+	app.get('/home',exp.basicAuth('user', 'securitree'), function(req, res) {
 
 			res.render('home', {
 				locals: {
@@ -131,7 +131,7 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 *
 * @method get /myvisualight
 */
-	app.get('/myvisualight',AUTH.sessionCheck, function(req, res) {
+	app.get('/myvisualight', exp.basicAuth('user', 'securitree'), function(req, res) {
 
 			res.render('myvisualight', {
 				locals: {
@@ -187,7 +187,7 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 *
 * @method get /signup
 */	
-	app.get('/signup', function(req, res) {
+	app.get('/signup',exp.basicAuth('user', 'securitree'), function(req, res) {
 		res.render('signup', {  locals: { title: 'Signup', countries : CT } });
 	});
 /**
@@ -227,7 +227,7 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 *
 * @method get /get-bulbs
 */	
-	app.get('/get-bulbs',AUTH.authCheck, function(req,res){
+	app.get('/get-bulbs',exp.basicAuth('user', 'securitree'), function(req,res){
 		//console.log;
 
 		    AM.getBulbsByUser(req.session.user, function(o){
@@ -456,7 +456,7 @@ app.post('/trigger/:key',AUTH.authCheck,function(req,res){
 * @method post /lost-password
 * @param {String} email
 */	
-	app.post('/lost-password', function(req, res){
+	app.post('/lost-password',exp.basicAuth('user', 'securitree'), function(req, res){
 	// look up the user's account via their email //
 		AM.getAccountByEmail(req.param('email'), function(o){
 			if (o){
@@ -483,7 +483,7 @@ app.post('/trigger/:key',AUTH.authCheck,function(req,res){
 * @param {String} e email
 * @param {String} p password
 */	
-	app.get('/reset-password', function(req, res) {
+	app.get('/reset-password',exp.basicAuth('user', 'securitree'), function(req, res) {
 		var email = req.query["e"];
 		var passH = req.query["p"];
 		AM.validateResetLink(email, passH, function(e){
