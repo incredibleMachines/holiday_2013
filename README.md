@@ -6,11 +6,15 @@ Brought to you by us.
 Running on the server:
 ---------------------
 
-ssh into the machine
+**ssh into the machine**
 
 	$ cd /var/www/
 
-Restart the  Server:
+**Restart the Server:**
 
 	$ forever restartall
+
+**View the Logs:**
+
+	$ tail -f ~/.forever/visualtree.log
 
