@@ -8,7 +8,7 @@ Running on the server:
 
 ssh into the machine
 
-cd /var/www/
+	$ cd /var/www/
 
 Restart the  Server:
 
