@@ -46,11 +46,12 @@ html
 			
 			ga('create', 'UA-45421450-2', 'treeeee.com');
 			ga('send', 'pageview');
-		script(type="text/javascript", src="http://w.sharethis.com/button/buttons.js")
-		script(type="text/javascript")
-			stLight.options({publisher: "85da50aa-c20d-4474-b200-7ea1ee3a778c", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+		script
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 		script(type="text/javascript", src="//use.typekit.net/vcd5dwj.js")
 		script(type="text/javascript")
 			try{Typekit.load();}catch(e){}
+		script
+			(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_US/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));
 	body!= body
 		

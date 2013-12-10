@@ -117,14 +117,20 @@ canvas#video{
 }
 
 .vis-logo{
-	padding-right:150px;
+	padding-right:208px;
+	float:left;
 }
 
 .copyright{
 	color:#666;
 	display:inline;
 	font-size:10px;
-	padding-left:80px;
+	padding-left:180px;
+}
+
+.twitter-share-button{
+	float:left;
+	padding-top:0;
 }
 
 
