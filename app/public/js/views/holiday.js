@@ -1,3 +1,5 @@
+
+
 $(document).ready( function (){
 
 //holiday controller to server 
@@ -41,7 +43,7 @@ $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 $('#freq li, #dur li').click(function(e){
 		e.preventDefault();
 		//send api call updating speed of alert;
-		console.log($(this));
+		//console.log($(this));
 		$(this).toggleClass('disabled').toggleClass('active');
 		var siblings = $(this).siblings().addClass('disabled').removeClass('active');
 		//send our alerts
@@ -84,8 +86,10 @@ function holidayAlert(_obj){
 		if(dur.length == 0) alert.duration = 1;
 		else alert.duration = parseInt($(dur[0]).val());
 		
-		hc.sendAlert(alert);
-		console.log(alert);
+		var hue = $( "#hue" ).slider( "value" );
+		//console.log(hue*182.04)
+		hc.sendAlert(hue*182.04,alert);
+		//if(debug)console.log(alert);
 }
 
 //canvas stuff
@@ -97,43 +101,43 @@ var lights={
         {
             "id": "52a0caf4182adc5c1b000005",
             "status": 0,
-            "slug":"blank"
+            "slug":"the star"
         },
         {
             "id": "52a0c953182adc5c1b000004",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 1"
         },
         {
             "id": "52a0c900182adc5c1b000003",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 2"
         },
         {
             "id": "52a0c81e182adc5c1b000002",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 3"
         },
         {
             "id": "52a0ddb1182adc5c1b000006",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 4"
             
         },
         {
             "id": "52a204b958435b250b000001",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 5"
         },
-        {
-            "id": "52a2086c58435b250b000002",
+        {	
+            "id": "52a66c62545907c222000001",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 6"
         },
         {
             "id": "52a20cfe58435b250b000003",
             "status": 0,
-            "slug": "blank"
+            "slug": "strip 7"
         },
         {
             "id": "52a24e38aaa4ac750c000001",
