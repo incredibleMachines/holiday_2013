@@ -29,9 +29,9 @@ function HolidayController(mainCallback){
 	
 	//connect the Socket
 	this.connectSocket=function(callback){
-		console.log("connect socket");
+		//console.log("connect socket");
 		var session = getCookie('sessionID');
-		console.log(document.cookie);
+		//console.log(document.cookie);
 		if(reconnect){
 			socket.socket.reconnect();
 			callback(socket);
@@ -70,7 +70,7 @@ function HolidayController(mainCallback){
 	
 		switch(hue){
 			case -1*182.04:
-				console.log("White");
+				//console.log("White");
 				state.sat = 0;
 				state.hue = 0;
 				state.bri = 254;
@@ -117,12 +117,12 @@ function HolidayController(mainCallback){
 	}
 	//add light to objects
 	this.addFixtureToControl=function(id){
-		console.log('add request: '+id);
+		//console.log('add request: '+id);
 		if(!_this.isFixtureInControl(id)) state.ids.push(id);
 	}
 	//remove light from objects
 	this.removeFixtureFromControl=function(id){
-		console.log('remove request: '+id);
+		//console.log('remove request: '+id);
 		var index = state.ids.indexOf(id);
 		if(index>-1) state.ids.splice(index,1);
 		//otherwise we got some sort of weird error
@@ -146,7 +146,7 @@ function HolidayController(mainCallback){
 	      		delete obj.ids;
 		      	obj.id = state.ids[i];
 		      	var json = JSON.stringify(obj);
-			  	console.log(json);
+			  	//console.log(json);
 			  	socket.send(json);
 	      }
 	}else{
@@ -154,7 +154,7 @@ function HolidayController(mainCallback){
 			delete _obj.ids;
 			_obj.id = state.ids[i];
 			var json =JSON.stringify(_obj);
-			console.log(json);
+			//console.log(json);
 			socket.send(json);
 		}
 	}      
@@ -164,7 +164,7 @@ function HolidayController(mainCallback){
 	this.connectSocket(function(socket){
 		socket.on('connect',function(){
 			//connection update
-			console.log('Connection');
+			//console.log('Connection');
 		})
 		socket.on('disconnect',function(){
 			//open.disabled = false;
