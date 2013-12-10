@@ -6,7 +6,7 @@ Brought to you by us.
 Running on the server:
 ---------------------
 
-**ssh into the machine**
+**SSH into the Machine:**
 
 	$ cd /var/www/
 
