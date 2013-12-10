@@ -203,7 +203,10 @@ function definePaths(event, which){
 						//this is the deselect
 						hc.removeFixtureFromControl(lights.zone[0].id);
 					}
-				}	
+				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=0;
 				}
@@ -239,6 +242,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[1].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=1;
 				}
@@ -273,6 +279,9 @@ function definePaths(event, which){
 						lights.zone[2].status=0;
 						hc.removeFixtureFromControl(lights.zone[2].id);
 					}
+				}
+				else if (which==2){
+					checkHighlight=null;
 				}
 				else{
 					checkHighlight=2;
@@ -311,6 +320,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[3].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=3;
 				}
@@ -346,6 +358,9 @@ function definePaths(event, which){
 						lights.zone[4].status=0;
 						hc.removeFixtureFromControl(lights.zone[4].id);
 					}
+				}
+				else if (which==2){
+					checkHighlight=null;
 				}
 				else{
 					checkHighlight=4;
@@ -383,6 +398,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[5].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=5;
 				}
@@ -417,6 +435,9 @@ function definePaths(event, which){
 						lights.zone[6].status=0;
 						hc.removeFixtureFromControl(lights.zone[6].id);
 					}
+				}
+				else if (which==2){
+					checkHighlight=null;
 				}
 				else{
 					checkHighlight=6;
@@ -454,6 +475,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[7].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=7;
 				}
@@ -490,6 +514,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[8].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=8;
 				}
@@ -524,6 +551,9 @@ function definePaths(event, which){
 						lights.zone[9].status=0;
 						hc.removeFixtureFromControl(lights.zone[9].id);
 					}
+				}
+				else if (which==2){
+					checkHighlight=null;
 				}
 				else{
 					checkHighlight=9;
@@ -560,6 +590,9 @@ function definePaths(event, which){
 						hc.removeFixtureFromControl(lights.zone[10].id);
 					}
 				}
+				else if (which==2){
+					checkHighlight=null;
+				}
 				else{
 					checkHighlight=10;
 				}
@@ -593,6 +626,9 @@ function definePaths(event, which){
 						lights.zone[11].status=0;
 						hc.removeFixtureFromControl(lights.zone[11].id);
 					}
+				}
+				else if (which==2){
+					checkHighlight=null;
 				}
 				else{
 					checkHighlight=11;
@@ -640,6 +676,11 @@ function makeHighlighted(bulb){
 
   $('#video').mousemove(function(e){
   	definePaths(e,1);
+  });
+
+   $('#video').mouseleave(function(e){
+  	definePaths(e,2);
+  	console.log('out');
   });
 
 
