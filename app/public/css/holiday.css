@@ -5,7 +5,7 @@ body{
 section#main{
 	position:relative;
 	width:870px;
-	height: 1300px;
+	height: 1600px;
 	margin: 0 auto;
 	background-color:white;
 	z-index:0;
@@ -106,7 +106,7 @@ canvas#video{
 
 #footer{
 	position:absolute;
-	top:1270px;
+	top:1540px;
 	background:black;
 	height:160px;
 }
