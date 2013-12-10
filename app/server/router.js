@@ -46,7 +46,7 @@ module.exports = function(app, io, sStore) { // this gets called from the main a
 
 	app.get('/',function(req,res){
 		
-		res.render('holiday', { locals: { title: 'Hijack Our Tree!', holiday: true }});
+		res.render('holiday', { locals: { title: 'Hack Our Tree!', holiday: true }});
 	})
 	
 	app.get('/login',function(req,res){
