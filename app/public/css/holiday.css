@@ -75,6 +75,30 @@ canvas#video{
 
 }
 
+#users{
+	position:absolute;
+	top:780px;
+	left:20px;
+	z-index:999;
+}
+
+#users p{
+	color: white;
+	font-family:"museo-slab", "Museo Slab", courier, serif;
+}
+
+#last-updated{
+	position:absolute;
+	top:800px;
+	left:20px;
+	z-index:999;
+}
+
+#last-updated p{
+	color: white;
+	font-family:"museo-slab", "Museo Slab", courier, serif;
+}
+
 nav{
 	display:block;
 	position:absolute;
