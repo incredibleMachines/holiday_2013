@@ -736,10 +736,7 @@ function makeSelected(bulb){
 
 function makeHighlighted(bulb){
     ctx.strokeStyle= 'white';
-    if (!ctx.setLineDash) {
-    	ctx.setLineDash = function () {}
-	}
-	ctx.lineWidth= 1;
+	ctx.lineWidth=1;
     ctx.stroke();
 	ctx.globalAlpha=0.5;
     ctx.fillStyle= 'white';
