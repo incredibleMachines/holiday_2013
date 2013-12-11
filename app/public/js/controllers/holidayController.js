@@ -12,21 +12,10 @@ function HolidayController(mainCallback){
 					hue: null, 
 					sat: 211, //set this default
 					bri: 120, //set this default
+					user: 'Anonymous',
 					alert: {duration:0,frequency:0,type:0}
 					}; //state object 
 					
-	/* Sample State object
-		state =
-				{	ids: [bulb ids],
-					on:true,
-					method:'put',
-					hue:((h.h *360)* 182.04), //we convert the hue value into degrees then convert to scaled hue by multiplying the value by 182.04
-					sat:(h.s * 254),
-					bri:(h.l * 254),
-					alert: {duration: 0, frequency: 0, type: 0}
-				};
-	*/
-	
 	//connect the Socket
 	this.connectSocket=function(callback){
 		//console.log("connect socket");
@@ -41,7 +30,8 @@ function HolidayController(mainCallback){
 		}
 	}
 	
-	this.updateHue=function (hue){
+	this.updateHue=function (hue, user){
+		//console.log('user: '+user);
 		//check if ids object is empty
 		if(state.ids.length<=0){
 			$('.alert').show();			
@@ -50,21 +40,28 @@ function HolidayController(mainCallback){
 			//change hsl to reflect
 			//then change back
 			setHueState(hue);
+			setUserName(user); 
 			_this.sendAPICall()
 		}
 	}
 	
-	this.sendAlert= function(hue,_alert){
+	this.sendAlert= function(hue,_alert,user){
+		console.log(user)
 		//some confusion with the namespace alert here.
 		if(state.ids.length<=0){
 			$('.alert').show();			
 		}else{
+			setUserName(user);
 		    setHueState(hue);
 			var obj = JSON.parse(JSON.stringify(state)); //explicity copy the data into a new object
 			obj.alert = _alert;
 			
 			_this.sendAPICall(obj);
 		}
+	}
+	function setUserName(_user){
+		if(_user !== '' && _user !== null && _user !== undefined) state.user = _user;
+		else console.log('user Undefined');
 	}
 	function setHueState(hue){
 	
@@ -135,18 +132,17 @@ function HolidayController(mainCallback){
 	//other messages we need to send?
 		
 	this.sendAPICall=function(_obj){
-	  //iterate on state array
-      //state.id = currBulbId;
       
       //state.type = currBulbType;
       if(_obj==null){
 	      //must do this with groups as this will be quite slow.
 	      for(var i =0; i<state.ids.length; i++){
+	      		console.log(state);
 	      		var obj = JSON.parse(JSON.stringify(state));
 	      		delete obj.ids;
 		      	obj.id = state.ids[i];
 		      	var json = JSON.stringify(obj);
-			  	//console.log(json);
+			  	console.log(json);
 			  	socket.send(json);
 	      }
 	}else{
@@ -169,8 +165,13 @@ function HolidayController(mainCallback){
 		socket.on('users',function(d){
 			//get the current user total from the server
 			console.log('User Count Updated: '+d.count)
+			$('#total-users').html(d.count)
 				
 		})
+		socket.on('update',function(d){
+			console.log('Last Updated By: '+d.user)
+			$('#last-user').html(d.user)
+		})	
 		socket.on('disconnect',function(){
 			//open.disabled = false;
 			//close.disabled = true;

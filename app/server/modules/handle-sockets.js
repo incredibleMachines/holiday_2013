@@ -325,7 +325,10 @@ exports.createSockets = function(app, io, AM){
 		  	  //console.log(SocketIOConnections);
 	          socket.on('message', function(message) {        // handle a message from the client
 	                  //console.log(JSON.parse(message));
-	                  API.parseMessage(message,Bulbs,function(o,e){ // this parses the json from the web socket
+					  var _message = JSON.parse(message);
+	                  io.sockets.emit('update',{user: _message.user})
+	                  delete _message.user;
+	                  API.parseMessage(JSON.stringify(_message),Bulbs,function(o,e){ // this parses the json from the web socket
 	                  
 	                          if(o != null){ // the json was valid and we have a bulb object that is valid
 	                                  sendToVisualight(o);  // send this data to the visualight

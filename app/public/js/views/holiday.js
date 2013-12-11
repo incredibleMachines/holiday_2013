@@ -3,21 +3,8 @@
 $(document).ready( function (){
 
 //holiday controller to server 
-var hc = new HolidayController( function(){
-	
-	
-	
-	
-} )
+var hc = new HolidayController( function(){})
 
-//slider for HUE functionality
-/*
-var tip = $('<div class="btn btn-inverse" />').css({
-    position: 'absolute',
-    top: -30,
-    left: -15
-}).show().text(1);
-*/
 
 $('.alert').hide();
 
@@ -30,7 +17,7 @@ $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	    },
 	    change: function(event, ui) {},
 	    stop:function(event,ui){
-		    hc.updateHue(ui.value*182.04 );//send update to our obj
+		    hc.updateHue(ui.value*182.04, $('input.name').val());//send update to our obj
 
 	    }
 	}).find(".ui-slider-handle")/*.append(tip)*/.hover(function() {
@@ -40,8 +27,6 @@ $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	});
 
 //control buttons for alerts and speeds and such
-
-
 $('#freq li, #dur li').click(function(e){
 		e.preventDefault();
 		//send api call updating speed of alert;
@@ -90,7 +75,7 @@ function holidayAlert(_obj){
 		
 		var hue = $( "#hue" ).slider( "value" );
 		//console.log(hue*182.04)
-		hc.sendAlert(hue*182.04,alert);
+		hc.sendAlert(hue*182.04,alert, $('input.name').val());
 		//if(debug)console.log(alert);
 }
 
