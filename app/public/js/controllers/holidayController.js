@@ -166,6 +166,11 @@ function HolidayController(mainCallback){
 			//connection update
 			//console.log('Connection');
 		})
+		socket.on('users',function(d){
+			//get the current user total from the server
+			console.log('User Count Updated: '+d.count)
+				
+		})
 		socket.on('disconnect',function(){
 			//open.disabled = false;
 			//close.disabled = true;

@@ -756,7 +756,7 @@ function makeHighlighted(bulb){
 
    $('#video').mouseleave(function(e){
   	definePaths(e,2);
-  	console.log('out');
+  	//console.log('out');
   });
 
 
