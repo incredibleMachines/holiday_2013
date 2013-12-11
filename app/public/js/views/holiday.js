@@ -6,9 +6,9 @@ $(document).ready( function (){
 var hc = new HolidayController( function(){})
 
 //parsing for some cus words
-var profanity=['anus','nipple','shit','pee','piss','poop','fuck','f u c k','faggot', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole'];
+var profanity=['anus','ass','clit','clits','nipple','nipples','vagina','vaginas','boob','boobs','shit','homo','homosexual','pee','piss','poop','fuck','f u c k','f a g g o t', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole', 'butt','sex','cum','cumming','jizz', 'puta', 'testicle','testie','testies','testy'];
 $('input.name').keyup(function(){
-	var val = $(this).val();
+	var val = $(this).val().toLowerCase();
 	if(val == 'billballbaggins') $(this).val('Joe Saavedra')
 	if(val == 'lonely social guy') $(this).val('Little Vicky')
 	if(val == 'piuggi') $(this).val('master of the world');
