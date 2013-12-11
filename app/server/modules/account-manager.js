@@ -37,10 +37,33 @@ exports.connectServer = function(callback){
 				bulbs = db.collection('bulbs');
 				sessions = db.collection('sessions');
 				groups = db.collection('groups');
+				connections = db.collection('connections');
 				callback(null);
 			}
 	}); 
 }
+
+/*  */
+exports.logConnect = function(_connection, callback)
+{
+	_connection.log_on = new Date();
+	connections.insert(_connection,function(e){
+		
+		//console.log(_connection);
+		callback(_connection)
+	});
+
+}
+
+exports.logDisconnect = function(_key, callback)
+{
+	connections.update({_id:_key},{$set:{log_off: new Date()}},true,function(e){
+		if(e) console.error(e);
+		callback();
+	})
+
+}
+
 exports.sessionAuth = function(session_id, session, callback)
 {
 	//check the database for the session_id
@@ -79,6 +102,7 @@ exports.sessionAuth = function(session_id, session, callback)
 		}
 	})
 }
+
 
 /* socket validation methods */
 
@@ -574,6 +598,10 @@ var getBulbId = function(id)
 var getUserId = function(id)
 {
 	return accounts.db.bson_serializer.ObjectID.createFromHexString(id)
+}
+var getConnectionId = function(id)
+{
+	return connections.db.bson_serialize.ObjectId.createFromHexString(id)
 }
 var findById = function(id, callback)
 {

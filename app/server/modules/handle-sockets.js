@@ -21,6 +21,9 @@ var Bulbs = {}; //temp object of bulbs to start cross referenceing
 exports.returnBulbs =  Bulbs;
 
 
+var SocketIOConnections = {};
+
+var totalConnections=0;
 
 
 /**
@@ -299,22 +302,52 @@ exports.createSockets = function(app, io, AM){
 
         //handle a connection from a IO socket -- this is after the handshack is validated
         io.sockets.on('connection', function (socket) {
-		  	console.log('Connection!');
-          socket.on('message', function(message) {        // handle a message from the client
-                  //console.log(JSON.parse(message));
-                  API.parseMessage(message,Bulbs,function(o,e){ // this parses the json from the web socket
-                  
-                          if(o != null){ // the json was valid and we have a bulb object that is valid
-                                  sendToVisualight(o);  // send this data to the visualight
-                          }else{
-                                  console.log(e.error); // we got an error from the api call -- NEED TO SEND THIS BACK TO THE CLIENT??
-                          }
-                  });
-          });
-          // handle client disconnect
-          socket.on('disconnect', function(){
-                  //clients.splice(arrayObjectIndexOf(clients,socket,'iosocket'),1);
-                  console.log("DISCONNECT");
+          //console.log(socket)
+          var source = socket.handshake.address;
+          var address = source.address;
+          var port = source.port;
+          source.socket_id = socket.id;
+          var key;
+          
+		  console.log('New Socket.io Connection from: '.data+address.help+':'.data+JSON.stringify(port).help);
+		  
+		  //store port and IP in database
+		  AM.logConnect(source, function(_connection){
+		  
+		  	  key = _connection._id;
+		  	  console.log('Socket.io Connect ID: '.data+key)
+		  	  totalConnections++;
+		  	  console.log('Total Current Socket.io Connections: '.warn+totalConnections);
+		  	  SocketIOConnections[key]=_connection
+		  	  
+		  	  io.sockets.emit('users',{count: totalConnections});
+		  	  
+		  	  //console.log(SocketIOConnections);
+	          socket.on('message', function(message) {        // handle a message from the client
+	                  //console.log(JSON.parse(message));
+	                  API.parseMessage(message,Bulbs,function(o,e){ // this parses the json from the web socket
+	                  
+	                          if(o != null){ // the json was valid and we have a bulb object that is valid
+	                                  sendToVisualight(o);  // send this data to the visualight
+	                          }else{
+	                                  console.log(e.error); // we got an error from the api call -- NEED TO SEND THIS BACK TO THE CLIENT??
+	                          }
+	                  });
+	          });
+	          // handle client disconnect
+	          socket.on('disconnect', function(){
+	                  //clients.splice(arrayObjectIndexOf(clients,socket,'iosocket'),1);
+	                  AM.logDisconnect(key, function(){
+		                  console.log("Socket.io Disconnect ID: ".data+key);
+		                  totalConnections--;
+		                  
+		                  io.sockets.emit('users',{count: totalConnections});
+		                  
+		                  if( SocketIOConnections.hasOwnProperty(key) ){
+		                  	delete SocketIOConnections[key];
+		                  }
+	                  })
+	          });
           });
         });//end io.sockets.on
 }
