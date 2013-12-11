@@ -6,7 +6,7 @@ $(document).ready( function (){
 var hc = new HolidayController( function(){})
 
 //parsing for some cus words
-var profanity = ['anus','shit','pee','piss','poop','fuck','faggot','fagget','fag','nuts','nigger','cunt','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','poop','fart','asshole'];
+var profanity=['anus','shit','pee','piss','poop','fuck','faggot','fagget','fag','nuts','nigger','cunt','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','poop','fart','asshole'];
 $('input.name').keyup(function(){
 	var val = $(this).val();
 	for(var i = 0; i<profanity.length; i++){
