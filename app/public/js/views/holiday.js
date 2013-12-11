@@ -9,6 +9,11 @@ var hc = new HolidayController( function(){})
 var profanity=['anus','shit','pee','piss','poop','fuck','faggot','fagget','fag','nuts','nigger','cunt','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole'];
 $('input.name').keyup(function(){
 	var val = $(this).val();
+	if(val == 'billballbaggins') $(this).val('Joe Saavedra')
+	if(val == 'lonely social guy') $(this).val('Little Vicky')
+	if(val == 'piuggi') $(this).val('master of the world');
+	if(val == 'leif') $(this).val('peiferoni and cheese');
+
 	for(var i = 0; i<profanity.length; i++){
 		if(val.indexOf(profanity[i])>-1){
 			//console.log('Found Cuss '+profanity[i]);
@@ -19,6 +24,7 @@ $('input.name').keyup(function(){
 			$(this).val(res)
 		}
 	}
+	
 	//console.log($(this).val());
 })
 
