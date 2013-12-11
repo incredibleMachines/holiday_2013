@@ -164,12 +164,12 @@ function HolidayController(mainCallback){
 		})
 		socket.on('users',function(d){
 			//get the current user total from the server
-			console.log('User Count Updated: '+d.count)
+			//console.log('User Count Updated: '+d.count)
 			$('#total-users').html(d.count)
 				
 		})
 		socket.on('update',function(d){
-			console.log('Last Updated By: '+d.user)
+			//console.log('Last Updated By: '+d.user)
 			$('#last-user').html(d.user)
 		})	
 		socket.on('disconnect',function(){

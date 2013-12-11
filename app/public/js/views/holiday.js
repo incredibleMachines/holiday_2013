@@ -5,6 +5,22 @@ $(document).ready( function (){
 //holiday controller to server 
 var hc = new HolidayController( function(){})
 
+//parsing for some cus words
+var profanity = ['anus','shit','pee','piss','poop','fuck','faggot','fagget','fag','nuts','nigger','cunt','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','poop','fart','asshole'];
+$('input.name').keyup(function(){
+	var val = $(this).val();
+	for(var i = 0; i<profanity.length; i++){
+		if(val.indexOf(profanity[i])>-1){
+			//console.log('Found Cuss '+profanity[i]);
+			var length = profanity[i].length;
+			var string='';
+			for(var j=0; j<length; j++) string += '*';
+			var res = val.replace(profanity[i],string);
+			$(this).val(res)
+		}
+	}
+	//console.log($(this).val());
+})
 
 $('.alert').hide();
 
