@@ -19,3 +19,24 @@ exports.authCheck = function(req, res, next){ // This should be able to handle b
 	})
 
 }
+
+exports.autoLogin = function(req,res,next){
+	
+	console.log('AutoLogin');
+	AM.manualLogin('user', 'securitree', function(e, o){
+			if (!o){
+				res.send(e, 400);
+			}	else{
+				//log in our user with a session
+			    req.session.user = o.user;
+			    res.cookie('sessionID',req.sessionID);
+			    console.log('User Authenticated: '.info+o.user+' Session: '.info+JSON.stringify(req.session).data)
+				if (req.param('remember-me') == 'true'){
+					res.cookie('user', o.user, { maxAge: 900000 });
+					//res.cookie('pass', o.pass, { maxAge: 900000 });
+				}
+				res.send(o, 200);
+			}
+		});
+	
+}

@@ -50,8 +50,8 @@ module.exports = function(app, exp, io, sStore) { // this gets called from the m
 	})
 	
 	app.get('/login',function(req,res){
-		res.render('login', { locals: { title: 'Visualight - Please Login To Your Account' }}); // this renders the login view
-
+		//res.render('login', { locals: { title: 'Visualight - Please Login To Your Account' }}); // this renders the login view
+		res.redirect('/myvisualight');
 	})
 	
 
@@ -131,8 +131,10 @@ module.exports = function(app, exp, io, sStore) { // this gets called from the m
 *
 * @method get /myvisualight
 */
-	app.get('/myvisualight', exp.basicAuth('user', 'securitree'), function(req, res) {
 
+	//var customMiddleware = [exp.basicAuth('user', 'securitree'), AUTH.autologin]
+	app.get('/myvisualight',exp.basicAuth('user','securitree'), function(req, res) {
+			req.session.user = 'user'; //make sure that only this user works on the page
 			res.render('myvisualight', {
 				locals: {
 					title : 'My Visualights',
@@ -227,7 +229,7 @@ module.exports = function(app, exp, io, sStore) { // this gets called from the m
 *
 * @method get /get-bulbs
 */	
-	app.get('/get-bulbs',exp.basicAuth('user', 'securitree'), function(req,res){
+	app.get('/get-bulbs',AUTH.authCheck, function(req,res){
 		//console.log;
 
 		    AM.getBulbsByUser(req.session.user, function(o){
