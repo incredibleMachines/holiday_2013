@@ -19,6 +19,8 @@ var tip = $('<div class="btn btn-inverse" />').css({
 }).show().text(1);
 */
 
+$('.alert').hide();
+
 $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	    value: 1,
 	    min: -1,
@@ -83,7 +85,7 @@ function holidayAlert(_obj){
 		
 		var dur = $('#dur').find('.active');
 		
-		if(dur.length == 0) alert.duration = 1;
+		if(dur.length == 0) alert.duration = 332;
 		else alert.duration = parseInt($(dur[0]).val());
 		
 		var hue = $( "#hue" ).slider( "value" );
@@ -735,9 +737,6 @@ function makeSelected(bulb){
 }
 
 function makeHighlighted(bulb){
-    ctx.strokeStyle= 'white';
-	ctx.lineWidth=1;
-    ctx.stroke();
 	ctx.globalAlpha=0.5;
     ctx.fillStyle= 'white';
     ctx.fill();
@@ -745,15 +744,20 @@ function makeHighlighted(bulb){
 
   $('#video').click(function(e){
   	definePaths(e,0);
+  	$('.alert').hide();
   });
 
   $('#video').mousemove(function(e){
   	definePaths(e,1);
   });
 
-   $('#video').mouseleave(function(e){
+  $('#video').mouseleave(function(e){
   	definePaths(e,2);
   	//console.log('out');
+  });
+
+  $('.alert').click(function(){
+  	$('.alert').hide();
   });
 
 

@@ -44,7 +44,7 @@ function HolidayController(mainCallback){
 	this.updateHue=function (hue){
 		//check if ids object is empty
 		if(state.ids.length<=0){
-			alert('Select a light to change first')
+			$('.alert').show();			
 		}else{
 			//check if hue is -1 or 361 (black or white)
 			//change hsl to reflect
@@ -57,7 +57,7 @@ function HolidayController(mainCallback){
 	this.sendAlert= function(hue,_alert){
 		//some confusion with the namespace alert here.
 		if(state.ids.length<=0){
-			alert('Select a light to change first');
+			$('.alert').show();			
 		}else{
 		    setHueState(hue);
 			var obj = JSON.parse(JSON.stringify(state)); //explicity copy the data into a new object

@@ -6,7 +6,7 @@ section#main
 		img(src='/img/header.png')
 
 	section#holiday-mobile
-		p.mobile-text We're sorry, the bleeeeeding-edge technology involved in this site uses too many vowels to work on mobile. Go grab your computer and come right back (or visit <a href="http://www.incrediblemachines.net">our mobile site</a> to check out our other work)
+		p.mobile-text We're sorry, the bleeeeeding-edge technology involved in this site uses too many vowels to work on mobile. Go grab your computer and come right back (or visit <a href="http://www.incrediblemachines.net">our mobile site</a> to check out our other work)!
 		img(src='/img/tag.jpg', class='mobile-tag')
 
 	section#holiday-magic
@@ -42,14 +42,15 @@ section#main
 				// <![endif]
 				// <! Well, Well, Well, look whos snooping. !>
 		
-		canvas#video(width="768px", height= "576px")    
-	
+		canvas#video(width="768px", height= "576px")
+		.alert.alert-danger.alert-dismissable Select a light to change first!
+			button(type="button", class="close", aria-hidden="true") &times;
+
 	nav
 		.controls
-			#hacker-label Hacker Controls:
+			#hacker-label Controls:
 			#hue
 			#alerts.btn-group
-				button.btn(name='alert-type', value='0') Fade
 				button.btn(name='alert-type', value='1') Blink
 			#speed.btn-group(data-toggle='buttons-radio')
 				button.btn.dropdown-toggle(data-toggle='dropdown') How fast? &nbsp;
@@ -61,16 +62,10 @@ section#main
 						a(href="#", value='4') &nbsp; Medium
 					li(value='9').disabled
 						a(href="#", value='9') &nbsp; Fast
-			#length.btn-group(data-toggle='buttons-radio')
-				button.btn.dropdown-toggle(data-toggle='dropdown') How long? &nbsp;
-					span.caret 
-				ul.dropdown-menu#dur
-					li(value='1').disabled 
-						a(href="#", value='1') &nbsp; Short
-					li(value='332').disabled
-						a(href="#", value='332') &nbsp; Medium
-					li(value='664').disabled
-						a(href="#",value='664') &nbsp; Long
+		
+			div#name
+				input(type="text", class="name", placeholder="Who are you? (optional)")
+
 	#body-text
 		p As a special holiday treat, we decided to gift the Internet real-time control of our office tree.  We have been decorating with Visualight, our in-house WiFi-enabled lighting platform. 
 		p Have fun hacking our Treeeee<span class="super">TMMMMM</span> and keeping an eye on our growing army of MakerBot elves as they print ornaments and Visualight enclosures. 
@@ -106,5 +101,4 @@ script(type='text/javascript', src='/vendor/bootstrap-modalmanager.js')
 script(type='text/javascript', src='/vendor/bootstrap-modal.js')
 script(type='text/javascript', src="/vendor/bootstrap-collapse.js")
 script(type='text/javascript', src='/vendor/bootstrap-dropdown.js')
-
 script(type='text/javascript', src='/vendor/bootstrap-alert.js')
