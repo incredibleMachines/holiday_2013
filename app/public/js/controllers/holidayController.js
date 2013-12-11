@@ -46,7 +46,7 @@ function HolidayController(mainCallback){
 	}
 	
 	this.sendAlert= function(hue,_alert,user){
-		console.log(user)
+		//console.log(user)
 		//some confusion with the namespace alert here.
 		if(state.ids.length<=0){
 			$('.alert').show();			
@@ -61,7 +61,6 @@ function HolidayController(mainCallback){
 	}
 	function setUserName(_user){
 		if(_user !== '' && _user !== null && _user !== undefined) state.user = _user;
-		else console.log('user Undefined');
 	}
 	function setHueState(hue){
 	
@@ -137,12 +136,12 @@ function HolidayController(mainCallback){
       if(_obj==null){
 	      //must do this with groups as this will be quite slow.
 	      for(var i =0; i<state.ids.length; i++){
-	      		console.log(state);
+	      		//console.log(state);
 	      		var obj = JSON.parse(JSON.stringify(state));
 	      		delete obj.ids;
 		      	obj.id = state.ids[i];
 		      	var json = JSON.stringify(obj);
-			  	console.log(json);
+			  	//console.log(json);
 			  	socket.send(json);
 	      }
 	}else{
