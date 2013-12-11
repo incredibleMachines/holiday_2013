@@ -483,17 +483,18 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(521,345);
-		ctx.lineTo(520,345);
-		ctx.bezierCurveTo(520,369,451,415,356,415);
-		ctx.bezierCurveTo(261,415,191,369,191,345);
-		ctx.lineTo(190,345);
-		ctx.lineTo(178,370);
-		ctx.bezierCurveTo(188,383,204,396,227,408);
-		ctx.bezierCurveTo(264,427,310,437,356,437);
-		ctx.bezierCurveTo(402,437,448,427,485,408);
-		ctx.bezierCurveTo(507,396,524,383,533,370);
-		ctx.lineTo(521,345);
+ctx.moveTo(521,345);
+ctx.lineTo(520,345);
+ctx.bezierCurveTo(520,369,451,415,356,415);
+ctx.bezierCurveTo(261,415,192,369,192,345);
+ctx.lineTo(192,345);
+ctx.lineTo(200,393);
+ctx.lineTo(209,393);
+ctx.bezierCurveTo(211,395,213,401,227,408);
+ctx.bezierCurveTo(264,427,310,437,356,437);
+ctx.bezierCurveTo(402,437,448,427,485,408);
+ctx.bezierCurveTo(507,396,524,383,533,370);
+ctx.lineTo(521,345);
 
 
 		if (event!=null){
@@ -571,13 +572,13 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
     ctx.beginPath();
-		ctx.moveTo(541,54);
-		ctx.lineTo(423,34);
-		ctx.bezierCurveTo(423,34,413,92,444,138);
-		ctx.bezierCurveTo(476,186,533,196,533,196);
-		ctx.lineTo(558,79);
-		ctx.bezierCurveTo(558,79,549,76,545,70);
-		ctx.bezierCurveTo(541,64,541,54,541,54);
+ctx.moveTo(579,72);
+ctx.lineTo(461,52);
+ctx.bezierCurveTo(461,52,451,110,482,156);
+ctx.bezierCurveTo(514,204,571,214,571,214);
+ctx.lineTo(596,97);
+ctx.bezierCurveTo(596,97,587,94,583,88);
+ctx.bezierCurveTo(579,82,579,72,579,72);
 
 		if (event!=null){
 			if (IsInPath(event)) {
@@ -610,13 +611,107 @@ function definePaths(event, which){
 	}
 
 
+	ctx.globalAlpha=1;
+    ctx.beginPath();
+ctx.moveTo(498,485);
+ctx.lineTo(503,412);
+ctx.lineTo(533,412);
+ctx.lineTo(538,344);
+ctx.lineTo(635,345);
+ctx.lineTo(656,360);
+ctx.lineTo(656,409);
+ctx.lineTo(663,410);
+ctx.lineTo(698,437);
+ctx.lineTo(694,517);
+ctx.lineTo(516,514);
+ctx.lineTo(498,485);
 
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[10].status==0){	
+						lights.zone[10].status=1;
+						hc.addFixtureToControl(lights.zone[10].id);
+
+					}
+					else{
+						lights.zone[10].status=0;
+						hc.removeFixtureFromControl(lights.zone[10].id);
+					}
+				}
+				else if (which==2){
+					checkHighlight=null;
+				}
+				else{
+					checkHighlight=10;
+				}
+			}
+		}
+
+	ctx.closePath();
+	if(lights.zone[10].status==1){
+		makeSelected(10);
+	}
+    if(checkHighlight==10){
+		makeHighlighted(10);
+	}
+
+		ctx.globalAlpha=1;
+    ctx.beginPath();
+
+ctx.moveTo(33,485);
+ctx.lineTo(29,410);
+ctx.lineTo(45,410);
+ctx.lineTo(57,361);
+ctx.lineTo(57,336);
+ctx.lineTo(71,332);
+ctx.lineTo(72,265);
+ctx.lineTo(85,260);
+ctx.lineTo(98,235);
+ctx.lineTo(169,238);
+ctx.lineTo(169,258);
+ctx.lineTo(180,260);
+ctx.lineTo(180,332);
+ctx.lineTo(190,332);
+ctx.lineTo(200,393);
+ctx.lineTo(209,393);
+ctx.lineTo(212,464);
+ctx.lineTo(190,485);
+ctx.lineTo(33,485);
+
+
+
+		if (event!=null){
+			if (IsInPath(event)) {
+				if(which==0){
+					if(lights.zone[11].status==0){	
+						lights.zone[11].status=1;
+						hc.addFixtureToControl(lights.zone[11].id);
+
+					}
+					else{
+						lights.zone[11].status=0;
+						hc.removeFixtureFromControl(lights.zone[11].id);
+					}
+				}
+				else if (which==2){
+					checkHighlight=null;
+				}
+				else{
+					checkHighlight=11;
+				}
+			}
+		}
+
+	ctx.closePath();
 	if(lights.zone[11].status==1){
 		makeSelected(11);
 	}
     if(checkHighlight==11){
 		makeHighlighted(11);
 	}
+
 
 }
 
@@ -631,13 +726,20 @@ function IsInPath(event) {
 function makeSelected(bulb){
     ctx.lineWidth= 3;
     ctx.strokeStyle= 'white';
+    if (!ctx.setLineDash) {
+    	ctx.setLineDash = function () {}
+	}
+    ctx.setLineDash([8,2]);
     ctx.stroke();
     //add bulb to state object
 }
 
 function makeHighlighted(bulb){
-	ctx.lineWidth= 1;
     ctx.strokeStyle= 'white';
+    if (!ctx.setLineDash) {
+    	ctx.setLineDash = function () {}
+	}
+	ctx.lineWidth= 1;
     ctx.stroke();
 	ctx.globalAlpha=0.5;
     ctx.fillStyle= 'white';
