@@ -726,12 +726,12 @@ function IsInPath(event) {
 }
 
 function makeSelected(bulb){
-    ctx.lineWidth= 3;
+    ctx.lineWidth= 2;
     ctx.strokeStyle= 'white';
     if (!ctx.setLineDash) {
     	ctx.setLineDash = function () {}
 	}
-    ctx.setLineDash([8,2]);
+    ctx.setLineDash([6,4]);
     ctx.stroke();
     //add bulb to state object
 }

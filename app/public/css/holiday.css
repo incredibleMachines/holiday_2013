@@ -94,7 +94,7 @@ nav{
 	font-family:"proxima-nova-sc-osf-ext-cond", "Proxima Nova Condensed", "Arial narrow", arial, sans-serif;
 	vertical-align:top;
 	margin-top:20px;
-	margin-left:10px;
+	margin-left:25px;
 	margin-right:10px;
 }
 
@@ -170,20 +170,20 @@ div#alerts, div#speed, div#length, div#hue{
 	display:block;
 	font-size:10px;
 	padding-left:180px;
-	padding-top:20px;
+	padding-top:28px;
 	float:right;
 }
 
 .twitter-share-button{
 	display:block;
 	float:left;
-	padding-top:16px;
+	padding-top:22px;
 }
 
 .fb-share-button{
 	display:block;
 	float:left;
-	padding-top:16px;
+	padding-top:22px;
 }
 
 .super{
@@ -201,7 +201,11 @@ div#alerts, div#speed, div#length, div#hue{
 	width:300px;
 	left:200px;
 	z-index:999;
-	font-size:20px;
+	font-size:18px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	line-height:24px;
+	text-align:center;
 }
 
 
