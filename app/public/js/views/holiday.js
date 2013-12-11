@@ -6,7 +6,7 @@ $(document).ready( function (){
 var hc = new HolidayController( function(){})
 
 //parsing for some cus words
-var profanity=['anus','shit','pee','piss','poop','fuck','f u c k','faggot', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole'];
+var profanity=['anus','nipple','shit','pee','piss','poop','fuck','f u c k','faggot', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole'];
 $('input.name').keyup(function(){
 	var val = $(this).val();
 	if(val == 'billballbaggins') $(this).val('Joe Saavedra')
