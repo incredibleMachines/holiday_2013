@@ -1,4 +1,3 @@
-//$(document).ready(function(){
 function HolidayController(mainCallback){
 	
 	//globals
@@ -29,7 +28,6 @@ function HolidayController(mainCallback){
 			callback(socket);
 		}
 	}
-	
 	this.updateHue=function (hue, user){
 		//console.log('user: '+user);
 		//check if ids object is empty
@@ -44,7 +42,6 @@ function HolidayController(mainCallback){
 			_this.sendAPICall()
 		}
 	}
-	
 	this.sendAlert= function(hue,_alert,user){
 		//console.log(user)
 		//some confusion with the namespace alert here.
@@ -60,10 +57,10 @@ function HolidayController(mainCallback){
 		}
 	}
 	function setUserName(_user){
-		if(_user !== '' && _user !== null && _user !== undefined) state.user = _user;
+		if( _user !== '   ' && _user !== '  ' && _user !== ' ' && _user !== '' && _user !== null && _user !== undefined ) state.user = _user;
+		else state.user = 'Anonymous';
 	}
 	function setHueState(hue){
-	
 		switch(hue){
 			case -1*182.04:
 				//console.log("White");
@@ -84,10 +81,7 @@ function HolidayController(mainCallback){
 				break;
 				
 		}
-		
 	}
-	
-	
 	this.updateDuration=function(dur){
 		state.alert.duration= dur;
 		//_this.sendAPICall();
@@ -99,7 +93,6 @@ function HolidayController(mainCallback){
 		//_this.sendAPICall();
 		//state.alert.duration=0;
 	}
-	
 	this.updateType = function(type){
 		state.alert.type = type;
 		state.alert.duration=1;
@@ -123,13 +116,7 @@ function HolidayController(mainCallback){
 		if(index>-1) state.ids.splice(index,1);
 		//otherwise we got some sort of weird error
 	}
-	
-	//socket commands
-
-
-
-	//other messages we need to send?
-		
+	//other messages we need to send?	
 	this.sendAPICall=function(_obj){
       
       //state.type = currBulbType;
@@ -143,7 +130,7 @@ function HolidayController(mainCallback){
 		      	var json = JSON.stringify(obj);
 			  	//console.log(json);
 			  	socket.send(json);
-	      }
+	     }
 	}else{
 		for(var i =0; i<state.ids.length; i++){
 			delete _obj.ids;
@@ -151,9 +138,8 @@ function HolidayController(mainCallback){
 			var json =JSON.stringify(_obj);
 			//console.log(json);
 			socket.send(json);
-		}
-	}      
-
+			}
+		}      
    	}
 	//startup
 	this.connectSocket(function(socket){
@@ -177,8 +163,6 @@ function HolidayController(mainCallback){
 			reconnect = true;
 		});				
 	});
-	
-
 	//callback to the holiday.js view 
 	mainCallback();
 }	
@@ -211,4 +195,3 @@ function getCookies() {
 function getCookie(name) {
     return getCookies()[name];
 }
-//})
