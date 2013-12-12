@@ -6,7 +6,7 @@ $(document).ready( function (){
 var hc = new HolidayController( function(){})
 
 //parsing for some cus words
-var profanity=['anus','ass','clit','clits','nipple','nipples','vagina','vaginas','boob','boobs','shit','homo','homosexual','pee','piss','poop','fuck','f u c k','f a g g o t', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole', 'butt','sex','cum','cumming','jizz', 'puta', 'testicle','testie','testies','testy'];
+var profanity=['anus','ass','clit','clits','nipple','nipples','vagina','vaginas','boob','boobs','shit','homo','homosexual','pee','piss','poop','fuck','f u c k','f a g g o t', 'faggot','f a g g e t','fag','nuts','tits','t i t s','nigger','n i g g e r','cunt', 'c u n t','bitch','bastard','whore','slut','pussy','penis','weiner','cock','balls','dick','damn','goddam','fart','asshole', 'butt','sex','cum','cumming','jizz', 'puta', 'testicle','testie','testies','testy', 'rape', 'rapest', 'suck', 'sucking'];
 $('input.name').keyup(function(){
 	var val = $(this).val().toLowerCase();
 	if(val == 'billballbaggins') $(this).val('Joe Saavedra')
@@ -28,7 +28,7 @@ $('input.name').keyup(function(){
 	//console.log($(this).val());
 })
 
-$('#alert-highlight').hide();
+$('.alert').hide();
 
 $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	    value: 1,
@@ -751,7 +751,7 @@ function makeHighlighted(bulb){
 
   $('#video').click(function(e){
   	definePaths(e,0);
-  	$('#alert-highlight').hide();
+  	$('.alert').hide();
   });
 
   $('#video').mousemove(function(e){
@@ -763,8 +763,8 @@ function makeHighlighted(bulb){
   	//console.log('out');
   });
 
-  $('#alert-highlight').click(function(){
-  	$('#alert-highlight').hide();
+  $('.alert').click(function(){
+  	$('.alert').hide();
   });
 
 
