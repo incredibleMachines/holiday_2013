@@ -97,6 +97,7 @@ canvas#video{
 	top:800px;
 	left:20px;
 	z-index:999;
+	font-weight:300;
 }
 
 #last-updated p{
