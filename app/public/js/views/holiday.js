@@ -28,7 +28,7 @@ $('input.name').keyup(function(){
 	//console.log($(this).val());
 })
 
-$('.alert').hide();
+$('#alert-highlight').hide();
 
 $('#hue').slider({ //-1 black 361 white the rest is proper 0-360 Hue vals
 	    value: 1,
@@ -751,7 +751,7 @@ function makeHighlighted(bulb){
 
   $('#video').click(function(e){
   	definePaths(e,0);
-  	$('.alert').hide();
+  	$('#alert-highlight').hide();
   });
 
   $('#video').mousemove(function(e){
@@ -763,8 +763,8 @@ function makeHighlighted(bulb){
   	//console.log('out');
   });
 
-  $('.alert').click(function(){
-  	$('.alert').hide();
+  $('#alert-highlight').click(function(){
+  	$('#alert-highlight').hide();
   });
 
 

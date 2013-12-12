@@ -6,15 +6,15 @@ section#main
 		img(src='/img/header.png')
 
 	section#holiday-mobile
-		p.mobile-text We're sorry, the bleeeeeding-edge technology involved in this site uses too many vowels to work on mobile. Go grab your computer and come right back (or visit <a href="http://www.incrediblemachines.net">our mobile site</a> to check out our other work)!
+		p.mobile-text We're sorry, the technology involved in this site uses too many vowels to work on mobile. Go grab your computer and come right back (or visit <a href="http://www.incrediblemachines.net">our mobile site</a> to check out our other work)!
 		img(src='/img/tag.jpg', class='mobile-tag')
 
 	section#holiday-magic
-		#flashContent
-			p To view this page ensure that Adobe Flash Player version 11.1.0 or greater is installed. 
+		#flashContent.alert.alert-danger
+			p While the interaction we made is all Javascript and HTML5, the tasty live video of our office is in Adobe FMS, so to view:
 			script(type='text/javascript') 
 				var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-				document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
+				document.write("<a href='http://www.adobe.com/go/getflashplayer' target='_blank'>Get Flash 11</a>" );
 		
 		noscript
 			#flash(style='position: absolute;')
@@ -43,7 +43,7 @@ section#main
 				// <! Well, Well, Well, look whos snooping. !>
 		
 		canvas#video(width="768px", height= "576px")
-		.alert.alert-danger.alert-dismissable 
+		#alert-highlight.alert.alert-danger.alert-dismissable 
 			button(type="button", class="close", aria-hidden="true") &times;
 			<strong> Whoops! </strong> </br> Select a light to change first!
 		#users 
