@@ -11,7 +11,7 @@ function HolidayController(mainCallback){
 					method: 'put',
 					hue: null, 
 					sat: 211, //set this default
-					bri: 120, //set this default
+					bri: 80, //set this default
 					user: 'Anonymous',
 					alert: {duration:0,frequency:0,type:0}
 					}; //state object 

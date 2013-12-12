@@ -188,17 +188,17 @@ function definePaths(event, which){
 
 	ctx.globalAlpha=1;
 	ctx.beginPath();
-		ctx.moveTo(351,45);
-		ctx.lineTo(358,60);
-		ctx.lineTo(374,62);
-		ctx.lineTo(363,73);
-		ctx.lineTo(365,90);
-		ctx.lineTo(351,82);
-		ctx.lineTo(336,90);
-		ctx.lineTo(339,73);
-		ctx.lineTo(327,62);
-		ctx.lineTo(343,60);
-		ctx.lineTo(351,45);
+		ctx.moveTo(356,46);
+		ctx.lineTo(363,61);
+		ctx.lineTo(379,63);
+		ctx.lineTo(368,74);
+		ctx.lineTo(370,91);
+		ctx.lineTo(356,83);
+		ctx.lineTo(341,91);
+		ctx.lineTo(344,74);
+		ctx.lineTo(332,63);
+		ctx.lineTo(348,61);
+		ctx.lineTo(356,46);
 
 		if (event!=null){
 			if (IsInPath(event)) {
