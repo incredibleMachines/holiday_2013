@@ -80,11 +80,16 @@ canvas#video{
 	top:780px;
 	left:20px;
 	z-index:999;
+	font-weight:300;
 }
 
 #users p{
 	color: white;
 	font-family:"museo-slab", "Museo Slab", courier, serif;
+}
+
+#last-user{
+	font-weight:700;
 }
 
 #last-updated{
@@ -231,8 +236,6 @@ div#alerts, div#speed, div#length, div#hue{
 	line-height:24px;
 	text-align:center;
 }
-
-
 
 @media screen and (max-device-width: 1024px){
 	#holiday-mobile{
