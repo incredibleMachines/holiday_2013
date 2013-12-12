@@ -1,4 +1,3 @@
-//$(document).ready(function(){
 function HolidayController(mainCallback){
 	
 	//globals
@@ -29,7 +28,6 @@ function HolidayController(mainCallback){
 			callback(socket);
 		}
 	}
-	
 	this.updateHue=function (hue, user){
 		//console.log('user: '+user);
 		//check if ids object is empty
@@ -44,7 +42,6 @@ function HolidayController(mainCallback){
 			_this.sendAPICall()
 		}
 	}
-	
 	this.sendAlert= function(hue,_alert,user){
 		//console.log(user)
 		//some confusion with the namespace alert here.
@@ -60,7 +57,8 @@ function HolidayController(mainCallback){
 		}
 	}
 	function setUserName(_user){
-		if(_user !== '' && _user !== null && _user !== undefined) state.user = _user;
+		if( _user !== '   ' && _user !== '  ' && _user !== ' ' && _user !== '' && _user !== null && _user !== undefined ) state.user = _user;
+		else state.user = 'Anonymous';
 	}
 	function setHueState(hue){
 	
@@ -124,10 +122,6 @@ function HolidayController(mainCallback){
 		//otherwise we got some sort of weird error
 	}
 	
-	//socket commands
-
-
-
 	//other messages we need to send?
 		
 	this.sendAPICall=function(_obj){
